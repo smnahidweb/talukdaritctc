@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EFF7FF"/>
+      <stop offset="100%" stop-color="#D0E7FF"/>
+    </linearGradient>
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0756A8"/>
+      <stop offset="100%" stop-color="#062B52"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F97316"/>
+      <stop offset="100%" stop-color="#EA580C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Card -->
+  <rect width="800" height="600" rx="24" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle Grid Lines -->
+  <g stroke="#0756A8" stroke-opacity="0.08" stroke-width="1.5">
+    <line x1="0" y1="100" x2="800" y2="100" />
+    <line x1="0" y1="200" x2="800" y2="200" />
+    <line x1="0" y1="300" x2="800" y2="300" />
+    <line x1="0" y1="400" x2="800" y2="400" />
+    <line x1="0" y1="500" x2="800" y2="500" />
+    <line x1="150" y1="0" x2="150" y2="600" />
+    <line x1="300" y1="0" x2="300" y2="600" />
+    <line x1="450" y1="0" x2="450" y2="600" />
+    <line x1="600" y1="0" x2="600" y2="600" />
+  </g>
+
+  <!-- Central Computer Workstation Display -->
+  <rect x="180" y="110" width="440" height="280" rx="16" fill="white" stroke="#0756A8" stroke-width="4"/>
+  <rect x="196" y="126" width="408" height="220" rx="10" fill="url(#screenGrad)"/>
+  
+  <!-- Monitor Stand -->
+  <path d="M370 390 L360 460 L440 460 L430 390 Z" fill="#CBD5E1"/>
+  <rect x="330" y="460" width="140" height="16" rx="8" fill="#94A3B8"/>
+
+  <!-- Code/Design UI Wireframe on Screen -->
+  <rect x="220" y="150" width="120" height="16" rx="4" fill="#38BDF8" fill-opacity="0.9"/>
+  <rect x="220" y="180" width="220" height="10" rx="3" fill="white" fill-opacity="0.4"/>
+  <rect x="220" y="200" width="180" height="10" rx="3" fill="white" fill-opacity="0.4"/>
+  <rect x="220" y="220" width="260" height="10" rx="3" fill="white" fill-opacity="0.4"/>
+  <rect x="220" y="240" width="140" height="10" rx="3" fill="#F97316" fill-opacity="0.8"/>
+  
+  <!-- Chart Graphic on Screen -->
+  <rect x="470" y="210" width="22" height="60" rx="4" fill="#38BDF8"/>
+  <rect x="500" y="170" width="22" height="100" rx="4" fill="#F97316"/>
+  <rect x="530" y="190" width="22" height="80" rx="4" fill="#4ADE80"/>
+
+  <!-- Floating Badge: Practical Lab -->
+  <g transform="translate(100, 230)">
+    <rect width="180" height="64" rx="14" fill="white" stroke="#E2E8F0" stroke-width="2" filter="drop-shadow(0 10px 15px rgba(0,0,0,0.06))"/>
+    <circle cx="36" cy="32" r="18" fill="#EFF7FF"/>
+    <path d="M28 32 L34 38 L44 26" fill="none" stroke="#0756A8" stroke-width="3" stroke-linecap="round"/>
+    <text x="64" y="28" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#062B52">100% Practical</text>
+    <text x="64" y="46" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="#64748B">Lab-Based Sessions</text>
+  </g>
+
+  <!-- Floating Badge: Govt. & Industry Standards -->
+  <g transform="translate(510, 360)">
+    <rect width="210" height="70" rx="14" fill="white" stroke="#E2E8F0" stroke-width="2" filter="drop-shadow(0 10px 15px rgba(0,0,0,0.06))"/>
+    <circle cx="38" cy="35" r="20" fill="#FFF7ED"/>
+    <circle cx="38" cy="35" r="10" fill="#F97316"/>
+    <text x="68" y="30" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#062B52">Career Oriented</text>
+    <text x="68" y="48" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="#64748B">Govt. Job & Freelance</text>
+  </g>
+
+  <!-- Keyboard / Desk Element -->
+  <rect x="250" y="490" width="300" height="28" rx="8" fill="white" stroke="#CBD5E1" stroke-width="2"/>
+  <rect x="580" y="495" width="40" height="24" rx="10" fill="white" stroke="#CBD5E1" stroke-width="2"/>
+</svg>

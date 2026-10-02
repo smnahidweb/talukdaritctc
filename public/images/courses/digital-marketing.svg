@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="100%" height="100%">
+  <rect width="400" height="240" fill="#FAF5FF"/>
+  <rect x="30" y="30" width="340" height="180" rx="12" fill="white" stroke="#F3E8FF" stroke-width="2"/>
+  <!-- Marketing megaphone & growth curve -->
+  <path d="M70 120 L120 90 L120 150 Z" fill="#F97316"/>
+  <rect x="125" y="100" width="40" height="40" rx="4" fill="#0756A8"/>
+  <!-- Growth Bars -->
+  <rect x="200" y="130" width="24" height="40" rx="4" fill="#E2E8F0"/>
+  <rect x="235" y="105" width="24" height="65" rx="4" fill="#38BDF8"/>
+  <rect x="270" y="80" width="24" height="90" rx="4" fill="#16A34A"/>
+  <rect x="305" y="60" width="24" height="110" rx="4" fill="#F97316"/>
+</svg>
