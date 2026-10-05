@@ -241,11 +241,11 @@ export default function AboutPage() {
       ------------------------------------------------- */}
       <Section background="surface">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-end lg:gap-20">
+          <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-center lg:gap-20">
             {/* Heading */}
             <div>
               <div className="flex items-center gap-3">
-                <span className="h-px w-8 bg-accent" />
+
 
                 <span className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
                   What We Value
@@ -258,8 +258,8 @@ export default function AboutPage() {
               </h2>
 
               <p className="mt-5 max-w-md text-sm leading-7 text-brand-muted">
-                Everything we do is guided by a simple goal: help learners
-                become capable, confident, and ready for what comes next.
+                Everything we do is guided by a simple goal: help learners become
+                capable, confident, and ready for what comes next.
               </p>
             </div>
 
@@ -271,24 +271,40 @@ export default function AboutPage() {
                 return (
                   <div
                     key={value.number}
-                    className={`group bg-white p-6 transition-colors duration-300 hover:bg-brand-bg sm:p-7 ${index < 2 ? "border-b border-brand-border" : ""
+                    className={`group p-6 transition-all duration-300 hover:brightness-[0.98] sm:p-7 ${index === 0
+                      ? "bg-[#F2F7FF]"
+                      : index === 1
+                        ? "bg-[#FFF7EF]"
+                        : index === 2
+                          ? "bg-[#F1FBF5]"
+                          : "bg-[#F7F4FF]"
+                      } ${index < 2 ? "border-b border-brand-border" : ""
                       } ${index % 2 === 0
                         ? "sm:border-r sm:border-brand-border"
                         : ""
                       }`}
                   >
+                    {/* Top */}
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold tracking-[0.15em] text-brand-muted">
                         {value.number}
                       </span>
 
                       <div
-                        className={`flex h-10 w-10 items-center justify-center rounded-xl ${value.iconClass}`}
+                        className={`flex h-10 w-10 items-center justify-center rounded-xl ${index === 0
+                          ? "bg-blue-100 text-primary"
+                          : index === 1
+                            ? "bg-orange-100 text-accent"
+                            : index === 2
+                              ? "bg-emerald-100 text-brand-success"
+                              : "bg-violet-100 text-violet-600"
+                          }`}
                       >
                         <Icon className="h-5 w-5" strokeWidth={1.7} />
                       </div>
                     </div>
 
+                    {/* Content */}
                     <h3 className="mt-8 text-lg font-bold text-brand-text">
                       {value.title}
                     </h3>
@@ -296,6 +312,18 @@ export default function AboutPage() {
                     <p className="mt-2 text-sm leading-6 text-brand-muted">
                       {value.description}
                     </p>
+
+                    {/* Accent */}
+                    <div
+                      className={`mt-6 h-[2px] w-8 transition-all duration-300 group-hover:w-14 ${index === 0
+                        ? "bg-primary"
+                        : index === 1
+                          ? "bg-accent"
+                          : index === 2
+                            ? "bg-brand-success"
+                            : "bg-violet-500"
+                        }`}
+                    />
                   </div>
                 );
               })}
