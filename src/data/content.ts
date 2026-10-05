@@ -73,39 +73,39 @@ export interface FAQItem {
 export const faqItems: FAQItem[] = [
   {
     id: "faq-1",
-    question: "আমি কি একেবারে নতুন শিক্ষার্থী হলেও ভর্তি হতে পারব?",
+    question: "Can I enroll if I am a complete beginner?",
     answer:
-      "হ্যাঁ, অবশ্যই। আমাদের কোর্সগুলো একেবারে বিগিনার থেকে শুরু হয়। আমাদের ট্রেইনার আপনাকে একদম প্রথম থেকে হাতে-কলমে শেখাবেন।",
+      "Yes, absolutely. Our courses are designed for beginners and start from the fundamentals. Our trainers will guide you step by step through practical, hands-on learning.",
   },
   {
     id: "faq-2",
-    question: "কোর্স করতে নিজস্ব কম্পিউটার লাগবে কি?",
+    question: "Do I need to bring my own computer?",
     answer:
-      "না, লাগবে না। আমাদের এয়ার-কন্ডিশন্ড কম্পিউটার ল্যাবে প্রতিটি শিক্ষার্থীর জন্য আলাদা কম্পিউটার রয়েছে।",
+      "No, you do not. Our air-conditioned computer lab has a dedicated computer for each student, so you can attend your classes without bringing your own device.",
   },
   {
     id: "faq-3",
-    question: "কোর্সের সময়কাল কতদিন এবং কখন ক্লাস হয়?",
+    question: "How long are the courses, and when are the classes held?",
     answer:
-      "কোর্সভেদে ৪ থেকে ৮ সপ্তাহ। সকাল ও বিকেলে দুটি ব্যাচে ক্লাস হয়। ভর্তির সময় আপনার পছন্দের সময়সূচি বেছে নিতে পারবেন।",
+      "Course duration varies depending on the program, typically ranging from 4 to 8 weeks. Classes are available in morning and afternoon batches, and you can choose your preferred schedule during enrollment.",
   },
   {
     id: "faq-4",
-    question: "কোর্স শেষে কি সার্টিফিকেট দেওয়া হয়?",
+    question: "Will I receive a certificate after completing the course?",
     answer:
-      "হ্যাঁ। সফলভাবে কোর্স সম্পন্ন করলে Talukdar IT & Computer Training Centre-এর পক্ষ থেকে সার্টিফিকেট প্রদান করা হয়।",
+      "Yes. Students who successfully complete their course will receive a certificate from Talukdar IT & Computer Training Centre as recognition of their training and achievement.",
   },
   {
     id: "faq-5",
-    question: "ডেমো ক্লাস কি বিনামূল্যে?",
+    question: "Is the demo class free?",
     answer:
-      "হ্যাঁ। আমাদের ডেমো ক্লাস সম্পূর্ণ বিনামূল্যে। ভর্তির আগে একটি ডেমো ক্লাসে অংশগ্রহণ করে কোর্স ও পরিবেশ সম্পর্কে ধারণা নিতে পারবেন।",
+      "Yes. Our demo class is completely free. You can attend a demo session before enrollment to experience the course, teaching approach, and learning environment.",
   },
   {
     id: "faq-6",
-    question: "ফি কি একসাথে পরিশোধ করতে হবে?",
+    question: "Do I have to pay the full course fee at once?",
     answer:
-      "সাধারণত কোর্স ফি একবারে পরিশোধ করতে হয়। তবে বিশেষ প্রয়োজনে কিস্তিতে পরিশোধের সুবিধাও দেওয়া হয়। বিস্তারিত জানতে সরাসরি যোগাযোগ করুন।",
+      "Course fees are generally paid in full at the time of enrollment. However, installment options may be available in special cases. Please contact us for more details.",
   },
 ];
 

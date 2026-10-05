@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
 import { AboutPreview } from "@/components/home/AboutPreview";
-import { PopularCourses } from "@/components/home/PopularCourses";
-import { BestSellingCourse } from "@/components/home/BestSellingCourse";
-import { ComparisonTable } from "@/components/home/ComparisonTable";
 import { MentorSection } from "@/components/home/MentorSection";
 import { Testimonials } from "@/components/home/Testimonials";
 import { FAQSection } from "@/components/home/FAQSection";
 import { AdmissionCTA } from "@/components/home/AdmissionCTA";
-import Slider from "@/components/home/DepartmentSlider";
-import DepartmentSlider from "@/components/home/DepartmentSlider";
 import TrainingStats from "@/components/home/TrainingStats";
+import PopularCourses from "@/components/home/PopularCourses";
+import { FromLearningToEarning } from "@/components/home/FromLearningToEarning";
+import { DemoCTA } from "@/components/home/DemoCTA";
 
 export const metadata: Metadata = {
   title:
@@ -37,26 +35,21 @@ export default function HomePage() {
 
       <TrainingStats />
 
-      {/* 3. Popular Courses */}
+
       <PopularCourses />
-
-      {/* 4. Best Selling Courses */}
-      <BestSellingCourse />
-
-      {/* 5. Comparison Table */}
-      <ComparisonTable />
 
       {/* 6. Meet Our Trainers */}
       <MentorSection />
+
+      <FromLearningToEarning />
 
       {/* 7. Student Testimonials / Reviews */}
       <Testimonials />
 
       {/* 8. FAQ */}
       <FAQSection />
+      <DemoCTA />
 
-      {/* 9. Admission CTA */}
-      <AdmissionCTA />
     </div>
   );
 }

@@ -1,133 +1,182 @@
-"use client";
-import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { Clock, BookOpen, Target } from "lucide-react";
-import { coursesData, ReferenceCourseItem } from "@/data/courses";
-import { Container } from "@/components/shared/Container";
+import { Container } from "../shared/Container";
 
-// Icon tile colors per course type — matches the MS-app visual identity
-const courseIconConfig: Record<
-  ReferenceCourseItem["iconType"],
-  { bg: string; src: string; label: string }
-> = {
-  word: { bg: "#2B579A", src: "/images/courses/icons/word.svg", label: "W" },
-  excel: { bg: "#217346", src: "/images/courses/icons/excel.svg", label: "X" },
-  powerpoint: {
-    bg: "#D24726",
-    src: "/images/courses/icons/ppt.svg",
-    label: "P",
-  },
-  computer: {
-    bg: "#0756A8",
-    src: "/images/courses/icons/computer.svg",
-    label: "C",
-  },
-  web: { bg: "#0B74D1", src: "/images/courses/icons/web.svg", label: "W" },
-};
+const popularCourses = [
+    {
+        id: 1,
+        title: "Computer Basic & Office Application",
+        description:
+            "Build essential computer and office productivity skills for study, work, and everyday digital tasks.",
+        duration: "3 Months",
+        classes: "36 Classes",
+        level: "Beginner",
+        category: "Professional Training",
+        image: "/computer_basic.png",
+    },
+    {
+        id: 2,
+        title: "Graphic Design",
+        description:
+            "Learn practical design skills and create posters, banners, social media graphics, and visual content.",
+        duration: "3 Months",
+        classes: "36 Classes",
+        level: "Beginner",
+        category: "Creative Skills",
+        image: "/video.jpg",
+    },
+    {
+        id: 3,
+        title: "Web Design",
+        description:
+            "Learn HTML, CSS, and basic JavaScript while creating responsive and modern websites from scratch.",
+        duration: "4 Months",
+        classes: "48 Classes",
+        level: "Beginner",
+        category: "Web Development",
+        image: "/website.jpg",
+    },
+];
 
-function CourseCard({ course }: { course: ReferenceCourseItem }) {
-  const iconConf = courseIconConfig[course.iconType];
+export default function PopularCourses() {
+    return (
+        <section className="relative overflow-hidden bg-surface py-20 sm:py-24 lg:py-28">
+            {/* Background Decoration */}
+            <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                <div className="absolute -left-40 top-20 h-80 w-80 rounded-full bg-blue-100/50 blur-3xl" />
+                <div className="absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-orange-100/50 blur-3xl" />
+            </div>
 
-  return (
-    <div className="bg-white rounded-xl border border-[#E2E8F0] overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col">
-      {/* Card image / icon area */}
-      <Link href={`/courses/${course.slug}`} className="block">
-        <div
-          className="w-full aspect-[16/9] flex items-center justify-center relative overflow-hidden"
-          style={{ backgroundColor: iconConf.bg + "15" }}
-        >
-          {/* Large letter-icon tile */}
-          <div
-            className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center text-white font-extrabold text-4xl sm:text-5xl shadow-md"
-            style={{ backgroundColor: iconConf.bg }}
-          >
-            {iconConf.label}
-          </div>
-        </div>
-      </Link>
+            <Container>
+                {/* Section Header */}
+                <div className="relative mx-auto mb-12 max-w-3xl text-center sm:mb-14">
+                    <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-accent">
+                        Popular Courses
+                    </p>
 
-      {/* Card body */}
-      <div className="p-4 flex flex-col flex-1 gap-3">
-        {/* Title */}
-        <h3 className="text-base font-bold text-[#062B52] leading-snug">
-          <Link
-            href={`/courses/${course.slug}`}
-            className="hover:text-[#0756A8] transition-colors"
-          >
-            {course.title}
-          </Link>
-        </h3>
+                    <h2 className="text-xs font-bold tracking-tight text-brand-text sm:text-4xl lg:text-5xl">
+                        Learn Skills That{" "}
+                        <span className="text-primary">
+                            Create Opportunities
+                        </span>
+                    </h2>
 
-        {/* Meta row: Duration, Classes, Projects */}
-        <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[#64748B]">
-          <span className="flex items-center gap-1">
-            <Clock className="w-3.5 h-3.5 text-[#0756A8]" />
-            {course.duration}
-          </span>
-          <span className="flex items-center gap-1">
-            <BookOpen className="w-3.5 h-3.5 text-[#0756A8]" />
-            {course.totalLectures}
-          </span>
-          {course.projects && (
-            <span className="flex items-center gap-1">
-              <Target className="w-3.5 h-3.5 text-[#F97316]" />
-              {course.projects}
-            </span>
-          )}
-        </div>
+                    <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-brand-muted sm:text-lg">
+                        Practical training programs designed to help you build
+                        valuable digital skills, gain confidence, and prepare
+                        for real-world opportunities.
+                    </p>
+                </div>
 
-        {/* CTA buttons — same dual button pattern as rayhansict.com */}
-        <div className="mt-auto flex gap-2 pt-1">
-          <Link
-            href="/admission"
-            className="flex-1 text-center py-2 rounded-md bg-[#F97316] hover:bg-[#EA580C] text-white text-xs font-semibold transition-colors"
-          >
-            Apply For Demo Class
-          </Link>
-          <Link
-            href={`/courses/${course.slug}`}
-            className="flex-1 text-center py-2 rounded-md border border-[#0756A8] text-[#0756A8] hover:bg-[#EFF7FF] text-xs font-semibold transition-colors"
-          >
-            Details
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-}
+                {/* Course Grid */}
+                <div className="relative grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-7">
+                    {popularCourses.map((course) => (
+                        <article
+                            key={course.id}
+                            className="group flex h-full flex-col overflow-hidden rounded-xl border border-brand-border bg-white shadow-[0_12px_40px_-28px_rgba(6,43,82,0.3)] transition-all duration-500 hover:-translate-y-1.5 hover:border-brand-blue-border hover:shadow-[0_25px_60px_-30px_rgba(6,43,82,0.35)]"
+                        >
+                            {/* Image */}
+                            <div className="relative aspect-[16/10] overflow-hidden bg-brand-blue-light">
+                                <Image
+                                    src={course.image}
+                                    alt={course.title}
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                                />
 
-export function PopularCourses() {
-  return (
-    <section className="py-10 sm:py-14 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-      <Container>
-        {/* Section heading — centered like rayhansict.com */}
-        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#062B52] uppercase tracking-tight">
-            Popular Courses
-          </h2>
-          <div className="w-12 h-1 bg-[#F97316] rounded-full mx-auto mt-3 mb-4" />
-          <p className="text-sm sm:text-base text-[#64748B] leading-relaxed">
-            We have tailored our courses to teach crucial practical skills. The knowledge and proficiency gained will prepare you for your preferred role in education, employment and the job market.
-          </p>
-        </div>
+                                {/* Soft Image Overlay */}
+                                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/25 to-transparent opacity-70" />
 
-        {/* Course Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-5">
-          {coursesData.map((course) => (
-            <CourseCard key={course.id} course={course} />
-          ))}
-        </div>
+                                {/* Level Badge */}
+                                <div className="absolute left-5 top-5">
+                                    <span className="inline-flex rounded-full border border-white/70 bg-white/95 px-3.5 py-1.5 text-xs font-bold text-primary shadow-sm backdrop-blur-sm">
+                                        {course.level}
+                                    </span>
+                                </div>
+                            </div>
 
-        {/* View All Courses link */}
-        <div className="text-center mt-8">
-          <Link
-            href="/courses"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-md border border-[#0756A8] text-[#0756A8] hover:bg-[#EFF7FF] font-semibold transition-colors text-sm"
-          >
-            View All Courses
-          </Link>
-        </div>
-      </Container>
-    </section>
-  );
+                            {/* Card Content */}
+                            <div className="flex flex-1 flex-col p-6 sm:p-7">
+                                {/* Category */}
+                                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-accent">
+                                    {course.category}
+                                </p>
+
+                                {/* Title */}
+                                <h3 className="mt-3 text-xl font-bold leading-snug text-brand-text transition-colors duration-300 group-hover:text-primary sm:text-[22px]">
+                                    {course.title}
+                                </h3>
+
+                                {/* Description */}
+                                <p className="mt-3 line-clamp-3 text-sm leading-6 text-brand-muted">
+                                    {course.description}
+                                </p>
+
+                                {/* Course Details */}
+                                <div className="mt-6 grid grid-cols-3 divide-x divide-brand-border rounded-2xl border border-brand-border bg-brand-bg py-3.5">
+                                    <div className="px-2 text-center">
+                                        <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">
+                                            Duration
+                                        </p>
+                                        <p className="mt-1 text-xs font-bold text-brand-text">
+                                            {course.duration}
+                                        </p>
+                                    </div>
+
+                                    <div className="px-2 text-center">
+                                        <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">
+                                            Classes
+                                        </p>
+                                        <p className="mt-1 text-xs font-bold text-brand-text">
+                                            {course.classes}
+                                        </p>
+                                    </div>
+
+                                    <div className="px-2 text-center">
+                                        <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-muted">
+                                            Level
+                                        </p>
+                                        <p className="mt-1 text-xs font-bold text-primary">
+                                            {course.level}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Bottom CTA */}
+                                <div className="mt-auto pt-6">
+                                    <div className="mb-5 h-px bg-accent-border" />
+
+                                    <Link
+                                        href={`/courses/${course.id}`}
+                                        className="group/link inline-flex items-center gap-2 text-sm font-bold text-primary transition-colors duration-300 hover:text-primary-hover"
+                                    >
+                                        View Course
+
+                                        <span className="transition-transform duration-300 group-hover/link:translate-x-1">
+                                            →
+                                        </span>
+                                    </Link>
+                                </div>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+
+                {/* Bottom CTA */}
+                <div className="relative mt-10 flex justify-center">
+                    <Link
+                        href="/courses"
+                        className="group inline-flex items-center gap-2 rounded-xl border border-brand-border bg-white px-6 py-3 text-sm font-bold text-brand-text shadow-sm transition-all duration-300 hover:border-primary hover:text-primary hover:shadow-md"
+                    >
+                        Explore All Courses
+
+                        <span className="transition-transform duration-300 group-hover:translate-x-1">
+                            →
+                        </span>
+                    </Link>
+                </div>
+            </Container>
+        </section>
+    );
 }

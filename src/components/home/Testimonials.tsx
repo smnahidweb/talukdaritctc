@@ -1,70 +1,357 @@
+"use client";
+
 import * as React from "react";
 import Image from "next/image";
-import { Star, Quote } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Quote,
+  Star,
+} from "lucide-react";
+import { motion } from "motion/react";
+
 import { testimonialsData } from "@/data/testimonials";
 import { Container } from "@/components/shared/Container";
 
 export function Testimonials() {
+  const [activeIndex, setActiveIndex] = React.useState(0);
+  const [isPaused, setIsPaused] = React.useState(false);
+  const [visibleCount, setVisibleCount] = React.useState(3);
+
+  const total = testimonialsData.length;
+
+  /*
+   * Responsive visible cards
+   */
+  React.useEffect(() => {
+    const updateVisibleCount = () => {
+      if (window.innerWidth < 640) {
+        setVisibleCount(1);
+      } else if (window.innerWidth < 1024) {
+        setVisibleCount(2);
+      } else {
+        setVisibleCount(3);
+      }
+    };
+
+    updateVisibleCount();
+
+    window.addEventListener(
+      "resize",
+      updateVisibleCount
+    );
+
+    return () => {
+      window.removeEventListener(
+        "resize",
+        updateVisibleCount
+      );
+    };
+  }, []);
+
+  const maxIndex = Math.max(
+    0,
+    total - visibleCount
+  );
+
+  /*
+   * Keep index valid after responsive changes
+   */
+  React.useEffect(() => {
+    setActiveIndex((current) =>
+      Math.min(current, maxIndex)
+    );
+  }, [maxIndex]);
+
+  const nextSlide = React.useCallback(() => {
+    setActiveIndex((current) =>
+      current >= maxIndex ? 0 : current + 1
+    );
+  }, [maxIndex]);
+
+  const previousSlide = () => {
+    setActiveIndex((current) =>
+      current <= 0 ? maxIndex : current - 1
+    );
+  };
+
+  /*
+   * Auto play
+   */
+  React.useEffect(() => {
+    if (
+      isPaused ||
+      total <= visibleCount
+    ) {
+      return;
+    }
+
+    const timer = window.setInterval(
+      nextSlide,
+      5000
+    );
+
+    return () => {
+      window.clearInterval(timer);
+    };
+  }, [
+    isPaused,
+    nextSlide,
+    total,
+    visibleCount,
+  ]);
+
+  /*
+   * Percentage for horizontal track.
+   *
+   * Each slide moves according to the number
+   * of visible cards.
+   */
+  const translatePercentage =
+    activeIndex * (100 / visibleCount);
+
   return (
-    <section className="py-10 sm:py-14 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+    <section
+      className="relative overflow-hidden bg-brand-bg py-20 sm:py-24 lg:py-28"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       <Container>
-        {/* Section heading — matches rayhansict.com "What People Think About Us?" */}
-        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#062B52] uppercase tracking-tight">
-            What Students Think{" "}
-            <span className="text-[#0756A8]">About Us?</span>
-          </h2>
-          <div className="w-12 h-1 bg-[#F97316] rounded-full mx-auto mt-3 mb-4" />
-          <p className="text-sm sm:text-base text-[#64748B] leading-relaxed">
-            Our reputation is positively perceived by our students who regard us with appreciation for our practical and professional training approach.
-          </p>
+        {/* =================================================
+            SECTION HEADER
+        ================================================== */}
+        <div className="mb-12 flex flex-col gap-7 lg:mb-14 lg:flex-row lg:items-end lg:justify-between">
+          {/* Left */}
+          <div className="max-w-2xl">
+            <div className="mb-4 flex items-center gap-3">
+
+
+              <span className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
+                Student Experiences
+              </span>
+            </div>
+
+            <h2 className="text-3xl font-bold leading-tight tracking-tight text-brand-text sm:text-4xl lg:text-[44px]">
+              What Our Students
+              <br className="hidden sm:block" />{" "}
+              <span className="text-primary">
+                Say About Us
+              </span>
+            </h2>
+          </div>
+
+          {/* Right */}
+          <div className="flex max-w-md flex-col gap-5 lg:items-end lg:text-right">
+            <p className="text-sm leading-7 text-brand-muted sm:text-base">
+              Real experiences from learners who
+              trusted us to build practical skills,
+              confidence, and new opportunities.
+            </p>
+
+            {/* Controls */}
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={previousSlide}
+                aria-label="Previous testimonial"
+                className="group flex h-11 w-11 items-center justify-center rounded-full border border-brand-border bg-white text-brand-text transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white"
+              >
+                <ArrowLeft
+                  className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-0.5"
+                  strokeWidth={1.8}
+                />
+              </button>
+
+              <button
+                type="button"
+                onClick={nextSlide}
+                aria-label="Next testimonial"
+                className="group flex h-11 w-11 items-center justify-center rounded-full bg-primary text-white transition-all duration-300 hover:bg-primary-hover"
+              >
+                <ArrowRight
+                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
+                  strokeWidth={1.8}
+                />
+              </button>
+            </div>
+          </div>
         </div>
 
-        {/* Testimonial Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
-          {testimonialsData.map((item) => (
-            <div
-              key={item.id}
-              className="bg-white rounded-xl border border-[#E2E8F0] p-6 shadow-xs hover:shadow-sm transition-shadow relative flex flex-col"
-            >
-              {/* Stars */}
-              <div className="flex items-center gap-0.5 mb-3">
-                {Array.from({ length: item.rating }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-4 h-4 fill-[#F59E0B] text-[#F59E0B]"
-                  />
-                ))}
-              </div>
+        {/* =================================================
+            TESTIMONIAL TRACK
+        ================================================== */}
+        <div className="relative overflow-hidden">
+          <motion.div
+            animate={{
+              x: `-${translatePercentage}%`,
+            }}
+            transition={{
+              duration: 0.7,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="-mx-2 flex"
+          >
+            {testimonialsData.map(
+              (item, index) => (
+                <div
+                  key={item.id}
+                  className="shrink-0 px-2"
+                  style={{
+                    width: `${100 / visibleCount}%`,
+                  }}
+                >
+                  <article
+                    className={`group relative flex h-full min-h-[350px] flex-col overflow-hidden rounded-xl border bg-white p-7 transition-all duration-500 sm:p-8 ${index >= activeIndex &&
+                      index <
+                      activeIndex + visibleCount
+                      ? "border-brand-border"
+                      : "border-brand-border/70"
+                      }`}
+                  >
+                    {/* ---------------------------------
+                        Large quote
+                    ---------------------------------- */}
+                    <div className="absolute right-6 top-6">
+                      <Quote
+                        className="h-14 w-14 text-primary/[0.055]"
+                        strokeWidth={1}
+                      />
+                    </div>
 
-              {/* Review text */}
-              <p className="text-sm text-[#172033] leading-relaxed flex-1 italic">
-                &ldquo;{item.content}&rdquo;
-              </p>
+                    {/* ---------------------------------
+                        Top row
+                    ---------------------------------- */}
+                    <div className="relative flex items-center justify-between">
+                      {/* Rating */}
+                      <div className="flex items-center gap-1">
+                        {Array.from({
+                          length: 5,
+                        }).map((_, starIndex) => (
+                          <Star
+                            key={starIndex}
+                            className={`h-4 w-4 ${starIndex <
+                              item.rating
+                              ? "fill-[#F59E0B] text-[#F59E0B]"
+                              : "text-brand-border"
+                              }`}
+                            strokeWidth={1.5}
+                          />
+                        ))}
+                      </div>
 
-              {/* Author — photo + name + course */}
-              <div className="flex items-center gap-3 mt-5 pt-4 border-t border-[#E2E8F0]">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-[#E2E8F0] shrink-0 bg-[#EFF7FF]">
-                  {item.avatar && (
-                    <Image
-                      src={item.avatar}
-                      alt={item.name}
-                      fill
-                      sizes="40px"
-                      className="object-cover"
-                    />
-                  )}
+
+                    </div>
+
+                    {/* ---------------------------------
+                        Review
+                    ---------------------------------- */}
+                    <div className="relative mt-8 flex-1">
+                      <p className="max-w-[520px] text-[15px] leading-7 text-brand-text sm:text-base sm:leading-8">
+                        “{item.content}”
+                      </p>
+                    </div>
+
+                    {/* ---------------------------------
+                        Author
+                    ---------------------------------- */}
+                    <div className="mt-8 flex items-center gap-3">
+                      {/* Avatar */}
+                      <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-brand-blue-light ring-4 ring-brand-blue-light/60">
+                        {item.avatar ? (
+                          <Image
+                            src={item.avatar}
+                            alt={item.name}
+                            fill
+                            sizes="48px"
+                            className="object-cover"
+                          />
+                        ) : (
+                          <div className="flex h-full w-full items-center justify-center text-sm font-bold text-primary">
+                            {item.name
+                              .charAt(0)
+                              .toUpperCase()}
+                          </div>
+                        )}
+                      </div>
+
+                      <div>
+                        <p className="text-sm font-bold text-brand-text">
+                          {item.name}
+                        </p>
+
+                        <div className="mt-1 flex items-center gap-2">
+                          <span className="text-xs font-semibold text-primary">
+                            {item.role}
+                          </span>
+
+                          <span className="h-1 w-1 rounded-full bg-brand-border" />
+
+                          <span className="text-xs text-brand-muted">
+                            {item.course}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* ---------------------------------
+                        Bottom accent
+                    ---------------------------------- */}
+                    <div className="absolute bottom-0 left-7 right-7 h-[2px] origin-left scale-x-0 bg-accent transition-transform duration-500 group-hover:scale-x-100" />
+                  </article>
                 </div>
-                <div>
-                  <p className="text-sm font-bold text-[#062B52]">{item.name}</p>
-                  <p className="text-xs text-[#0756A8] font-medium">{item.course}</p>
-                </div>
-              </div>
+              )
+            )}
+          </motion.div>
+        </div>
 
-              {/* Decorative quote */}
-              <Quote className="absolute top-4 right-4 w-5 h-5 text-slate-100" />
-            </div>
-          ))}
+        {/* =================================================
+            BOTTOM NAVIGATION
+        ================================================== */}
+        <div className="mt-8 flex items-center justify-between">
+          {/* Progress */}
+          <div className="flex items-center gap-2">
+            {Array.from({
+              length: maxIndex + 1,
+            }).map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() =>
+                  setActiveIndex(index)
+                }
+                aria-label={`Go to testimonial group ${index + 1
+                  }`}
+                className="group flex h-5 items-center"
+              >
+                <span
+                  className={`h-1.5 rounded-full transition-all duration-300 ${index === activeIndex
+                    ? "w-8 bg-primary"
+                    : "w-4 bg-brand-border group-hover:bg-primary/40"
+                    }`}
+                />
+              </button>
+            ))}
+          </div>
+
+          {/* Counter */}
+          <div className="flex items-center gap-2 text-xs">
+            <span className="font-bold text-primary">
+              {String(
+                activeIndex + 1
+              ).padStart(2, "0")}
+            </span>
+
+            <span className="text-brand-border">
+              /
+            </span>
+
+            <span className="text-brand-muted">
+              {String(maxIndex + 1).padStart(
+                2,
+                "0"
+              )}
+            </span>
+          </div>
         </div>
       </Container>
     </section>
