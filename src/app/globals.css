@@ -39,7 +39,9 @@
 }
 
 /* Base resets & typography standards */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -61,7 +63,12 @@ body {
 }
 
 /* Headings typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #062B52;
   font-weight: 700;
   line-height: 1.25;
@@ -78,8 +85,55 @@ select:focus-visible {
   outline-offset: 2px;
 }
 
+@keyframes statistics-right {
+  from {
+    transform: translateX(-25%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes statistics-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-25%);
+  }
+}
+
+.animate-statistics-right {
+  animation: statistics-right 32s linear infinite;
+}
+
+.animate-statistics-left {
+  animation: statistics-left 32s linear infinite;
+}
+
+@media (max-width: 640px) {
+  .animate-statistics-right {
+    animation-duration: 25s;
+  }
+
+  .animate-statistics-left {
+    animation-duration: 25s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .animate-statistics-right,
+  .animate-statistics-left {
+    animation-play-state: paused;
+  }
+}
+
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
