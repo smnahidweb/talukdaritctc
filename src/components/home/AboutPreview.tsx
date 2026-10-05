@@ -115,7 +115,7 @@ export function AboutPreview() {
           <div className="relative lg:pl-2">
             {/* Section label */}
             <div className="mb-5 flex items-center gap-3">
-              <span className="h-px w-8 bg-[#F97316]" />
+
 
               <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#F97316]">
                 About Us
