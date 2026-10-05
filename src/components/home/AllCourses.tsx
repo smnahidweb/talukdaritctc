@@ -5,6 +5,7 @@ import { Container } from "../shared/Container";
 const allCourses = [
     {
         id: 1,
+        slug: "computer-basic-office-application",
         title: "Computer Basic & Office Application",
         description:
             "Build essential computer and office productivity skills for study, work, and everyday digital tasks.",
@@ -16,6 +17,7 @@ const allCourses = [
     },
     {
         id: 2,
+        slug: "graphic-design",
         title: "Graphic Design",
         description:
             "Learn practical design skills and create posters, banners, social media graphics, and visual content.",
@@ -27,6 +29,7 @@ const allCourses = [
     },
     {
         id: 3,
+        slug: "web-design",
         title: "Web Design",
         description:
             "Learn HTML, CSS, and basic JavaScript while creating responsive and modern websites from scratch.",
@@ -38,6 +41,7 @@ const allCourses = [
     },
     {
         id: 4,
+        slug: "digital-marketing",
         title: "Digital Marketing",
         description:
             "Learn social media marketing, content creation, SEO basics, and online promotion through practical digital marketing activities.",
@@ -159,7 +163,7 @@ export default function AllCourses() {
                                     <div className="mb-5 h-px bg-accent-border" />
 
                                     <Link
-                                        href={`/courses/${course.id}`}
+                                        href={`/courses/${course.slug}`}
                                         className="group/link inline-flex items-center gap-2 text-sm font-bold text-primary transition-colors duration-300 hover:text-primary-hover"
                                     >
                                         View Course

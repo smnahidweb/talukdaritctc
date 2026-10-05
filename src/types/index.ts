@@ -15,6 +15,7 @@ export interface Course {
   projects?: string;
   image: string;
   features: string[];
+  fees?: number;
   isPopular?: boolean;
   isFeatured?: boolean;
   ctaText?: string;

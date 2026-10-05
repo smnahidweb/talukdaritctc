@@ -9,6 +9,7 @@ import {
   Phone,
   ArrowLeft,
   Calendar,
+  BadgeDollarSign,
 } from "lucide-react";
 import { ReferenceCourseItem } from "@/data/courses";
 import { siteConfig } from "@/data/site";
@@ -90,10 +91,24 @@ export function CourseDetails({ course }: CourseDetailsProps) {
               <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-[#F97316] text-white">
                 Admissions Open
               </span>
-              <h3 className="text-xl font-bold text-white mt-2">
+              <h3 className="text-xl font-bold !text-white mt-2">
                 Course Summary
               </h3>
             </div>
+
+            {/* Fees Highlight Banner */}
+            {course.fees && (
+              <div className="mx-5 mt-5 rounded-xl bg-gradient-to-br from-[#FFF7ED] to-[#FEF3C7] border-2 border-[#F97316]/40 p-4 flex flex-col items-center text-center shadow-sm">
+                <div className="flex items-center gap-1.5 text-[#92400E] text-xs font-bold uppercase tracking-widest mb-1">
+                  <BadgeDollarSign className="w-4 h-4" />
+                  Course Fees
+                </div>
+                <p className="text-4xl font-extrabold text-[#C2410C] leading-none tracking-tight">
+                  ৳{course.fees.toLocaleString("en-BD")}
+                </p>
+                <p className="text-[11px] text-[#78350F] mt-1.5 font-semibold">Installment available · Enquire for details</p>
+              </div>
+            )}
 
             <div className="p-6 space-y-5">
               <div className="space-y-3.5 text-sm">
