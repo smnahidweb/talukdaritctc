@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { BookOpen } from "lucide-react";
+import { ArrowUpRight, BookOpen } from "lucide-react";
 
 interface Department {
     id: string | number;
@@ -16,10 +16,19 @@ interface DepartmentSliderProps {
 export default function DepartmentSlider({
     departments,
 }: DepartmentSliderProps) {
-    const animationDuration = Math.max(departments.length * 3, 18);
+    const animationDuration = Math.max(departments.length * 4, 24);
 
     return (
-        <div className="department-slider border-y border-[#E2E8F0] bg-[#F8FAFC]">
+        <div className="department-slider relative border-y border-[#E2E8F0] bg-white">
+            {/* Top subtle highlight */}
+            <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-px bg-gradient-to-r from-transparent via-[#EA580C]/20 to-transparent" />
+
+            {/* Left fade */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent sm:w-24 lg:w-32" />
+
+            {/* Right fade */}
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent sm:w-24 lg:w-32" />
+
             <div className="overflow-hidden">
                 <div
                     className="department-slider-track flex w-max"
@@ -67,6 +76,12 @@ export default function DepartmentSlider({
             transform: translateX(-50%);
           }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+          .department-slider-track {
+            animation-play-state: paused;
+          }
+        }
       `}</style>
         </div>
     );
@@ -88,28 +103,124 @@ function DepartmentItem({
             tabIndex={ariaHidden ? -1 : undefined}
             className="
         group
+        relative
         flex
-        h-[85px]
+        h-[76px]
         w-[50vw]
         shrink-0
-        flex-col
         items-center
         justify-center
-        gap-2
         border-r
         border-[#E2E8F0]
-        px-3
-        text-center
-        transition
-        hover:bg-[#EFF7FF]
+        px-4
+        transition-all
+        duration-300
+        sm:h-[82px]
         sm:w-[33.333vw]
+        lg:h-[85px]
         lg:w-[16.666vw]
       "
         >
-            <BookOpen className="h-5 w-5 text-[#0756A8] transition-transform duration-300 group-hover:scale-110" />
+            {/* Hover Background */}
+            <span
+                className="
+          absolute
+          inset-[7px]
+          rounded-xl
+          bg-[#FFF7F2]
+          opacity-0
+          scale-[0.97]
+          transition-all
+          duration-300
+          group-hover:scale-100
+          group-hover:opacity-100
+        "
+            />
 
-            <span className="text-xs font-semibold leading-tight text-[#172033] transition-colors group-hover:text-[#0756A8]">
-                {department.title}
+            {/* Content */}
+            <span className="relative z-[1] flex items-center gap-3">
+                {/* Icon */}
+                <span
+                    className="
+            flex
+            h-10
+            w-10
+            shrink-0
+            items-center
+            justify-center
+            rounded-xl
+            border
+            border-[#EA580C]/10
+            bg-[#FFF7F2]
+            text-[#EA580C]
+            shadow-sm
+            transition-all
+            duration-300
+            group-hover:border-[#EA580C]/20
+            group-hover:bg-white
+            group-hover:shadow-md
+            group-hover:shadow-[#EA580C]/10
+            group-hover:-translate-y-0.5
+          "
+                >
+                    <BookOpen
+                        className="
+              h-[18px]
+              w-[18px]
+              transition-transform
+              duration-300
+              group-hover:scale-110
+            "
+                    />
+                </span>
+
+                {/* Full Title */}
+                <span
+                    className="
+            max-w-[160px]
+            text-left
+            text-[13px]
+            font-bold
+            leading-tight
+            text-[#172033]
+            transition-colors
+            duration-300
+            group-hover:text-[#062B52]
+            sm:max-w-[190px]
+            sm:text-sm
+          "
+                >
+                    {department.title}
+                </span>
+
+                {/* Soft Arrow */}
+                <span
+                    className="
+            ml-1
+            hidden
+            h-7
+            w-7
+            shrink-0
+            items-center
+            justify-center
+            rounded-full
+            border
+            border-[#E2E8F0]
+            bg-white
+            text-[#94A3B8]
+            opacity-0
+            translate-x-[-4px]
+            transition-all
+            duration-300
+            group-hover:translate-x-0
+            group-hover:border-[#EA580C]/20
+            group-hover:text-[#EA580C]
+            group-hover:opacity-100
+            sm:flex
+          "
+                >
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                </span>
             </span>
         </Link>
     );

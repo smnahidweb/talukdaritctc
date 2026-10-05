@@ -1,7 +1,8 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
-export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ContainerProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   as?: React.ElementType;
 }
 
@@ -14,7 +15,7 @@ export function Container({
   return (
     <Component
       className={cn(
-        "w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+        "w-full max-w-[1480px] mx-auto px-4 sm:px-6 lg:px-8",
         className
       )}
       {...props}

@@ -25,7 +25,9 @@ export function Hero() {
       setVisible(false);
 
       setTimeout(() => {
-        setActiveWord((current) => (current + 1) % rotatingWords.length);
+        setActiveWord(
+          (current) => (current + 1) % rotatingWords.length
+        );
         setVisible(true);
       }, 250);
     }, 2600);
@@ -34,9 +36,11 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="overflow-hidden bg-white">
-      {/* HERO */}
-      <div className="relative min-h-[100svh]">
+    <section className="flex h-[85svh] min-h-[620px] flex-col overflow-hidden bg-white">
+      {/* =========================
+          HERO AREA
+      ========================== */}
+      <div className="relative min-h-0 flex-1">
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#EFF7FF] via-white to-white" />
 
@@ -46,7 +50,7 @@ export function Hero() {
         {/* Soft orange glow */}
         <div className="absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-[#F97316]/10 blur-3xl" />
 
-        {/* Soft premium pattern */}
+        {/* Premium pattern */}
         <div
           className="absolute inset-0 opacity-[0.035]"
           style={{
@@ -70,20 +74,23 @@ export function Hero() {
           }}
         />
 
-        <Container>
-          {/* Hero content */}
-          <div className="relative z-10 flex min-h-[100svh] -translate-y-4 items-center py-10 sm:-translate-y-5 sm:py-24 lg:-translate-y-7 lg:py-16">
-            <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
-              {/* LEFT */}
+        {/* HERO CONTENT */}
+        <Container className="h-full">
+          <div className="relative z-10 flex h-full items-center py-5 sm:py-8 lg:py-10">
+            <div className="grid w-full grid-cols-1 items-center gap-6 sm:gap-8 lg:grid-cols-2 lg:gap-12">
+
+              {/* =========================
+                  LEFT CONTENT
+              ========================== */}
               <div className="max-w-2xl">
                 {/* Badge */}
-                <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#0756A8]/15 bg-white px-4 py-2 text-sm font-semibold text-[#0756A8] shadow-sm">
+                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#0756A8]/15 bg-white px-3.5 py-1.5 text-xs font-semibold text-[#0756A8] shadow-sm sm:mb-5 sm:px-4 sm:py-2 sm:text-sm">
                   <GraduationCap className="h-4 w-4" />
                   Practical IT & Computer Training
                 </div>
 
                 {/* Heading */}
-                <h1 className="max-w-[680px] text-[2.25rem] font-extrabold leading-[1.1] tracking-tight text-[#062B52] sm:text-5xl lg:text-[4rem] xl:text-[4.35rem]">
+                <h1 className="max-w-[680px] text-[1.9rem] font-extrabold leading-[1.08] tracking-tight text-[#062B52] sm:text-5xl lg:text-[3.6rem] xl:text-[4.2rem]">
                   Build Your{" "}
                   <span
                     className="inline-block text-[#F97316]"
@@ -103,17 +110,17 @@ export function Hero() {
                 </h1>
 
                 {/* Description */}
-                <p className="mt-5 max-w-[550px] text-sm leading-6 text-[#64748B] sm:text-base sm:leading-7 lg:text-lg">
+                <p className="mt-4 max-w-[550px] text-xs leading-5 text-[#64748B] sm:mt-5 sm:text-base sm:leading-7 lg:text-lg">
                   Build practical digital skills through career-focused IT and
                   computer training for education, employment, freelancing and
                   professional growth.
                 </p>
 
                 {/* Buttons */}
-                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                <div className="mt-5 flex flex-col gap-2.5 sm:mt-7 sm:flex-row sm:gap-3">
                   <Link
                     href="/courses"
-                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#0756A8] px-6 py-3.5 font-semibold text-white shadow-lg shadow-[#0756A8]/20 transition hover:bg-[#062B52]"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#0756A8] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#0756A8]/20 transition hover:bg-[#062B52] sm:px-6 sm:py-3.5 sm:text-base"
                   >
                     Explore Our Courses
                     <ArrowRight className="h-4 w-4" />
@@ -121,24 +128,24 @@ export function Hero() {
 
                   <Link
                     href="/admission"
-                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#F97316] px-6 py-3.5 font-semibold text-white shadow-lg shadow-[#F97316]/20 transition hover:bg-[#EA580C]"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#F97316] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#F97316]/20 transition hover:bg-[#EA580C] sm:px-6 sm:py-3.5 sm:text-base"
                   >
                     <BookOpen className="h-4 w-4" />
                     Admission Information
                   </Link>
                 </div>
 
-                {/* Trust points */}
-                <div className="mt-7 flex flex-wrap gap-5 text-sm text-[#64748B]">
+                {/* Trust Points */}
+                <div className="mt-5 flex flex-wrap gap-4 text-xs text-[#64748B] sm:mt-7 sm:gap-5 sm:text-sm">
                   <div className="flex items-center gap-2">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#EFF7FF] text-[#0756A8]">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#EFF7FF] text-[#0756A8] sm:h-8 sm:w-8">
                       <GraduationCap className="h-4 w-4" />
                     </span>
                     Practical Learning
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FFF3E8] text-[#F97316]">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#FFF3E8] text-[#F97316] sm:h-8 sm:w-8">
                       <Users className="h-4 w-4" />
                     </span>
                     Career Focused
@@ -146,16 +153,18 @@ export function Hero() {
                 </div>
               </div>
 
-              {/* RIGHT IMAGE */}
+              {/* =========================
+                  RIGHT IMAGE
+              ========================== */}
               <div className="relative mx-auto w-full max-w-[580px] lg:ml-auto">
                 {/* Blue glow */}
-                <div className="absolute -inset-5 rounded-[32px] bg-[#0756A8]/10 blur-3xl" />
+                <div className="absolute -inset-4 rounded-[28px] bg-[#0756A8]/10 blur-3xl sm:-inset-5" />
 
                 {/* Back frame */}
-                <div className="absolute -right-3 -top-3 h-full w-full rounded-[24px] border border-[#0756A8]/10 bg-[#EFF7FF]" />
+                <div className="absolute -right-2 -top-2 h-full w-full rounded-[20px] border border-[#0756A8]/10 bg-[#EFF7FF] sm:-right-3 sm:-top-3 sm:rounded-[24px]" />
 
                 {/* Main image */}
-                <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] border-4 border-white bg-[#F8FAFC] shadow-2xl">
+                <div className="relative aspect-[16/9] overflow-hidden rounded-[20px] border-4 border-white bg-[#F8FAFC] shadow-2xl sm:aspect-[4/3] sm:rounded-[24px]">
                   <Image
                     src="/images/hero/hero-lab.jpg"
                     alt="Students learning computer skills at Talukdar IT & Computer Training Centre"
@@ -174,9 +183,12 @@ export function Hero() {
         </Container>
       </div>
 
-      {/* DEPARTMENT STRIP */}
-      <DepartmentSlider departments={departments} />
-
+      {/* =========================
+          DEPARTMENT SLIDER
+      ========================== */}
+      <div className="h-[68px] shrink-0 sm:h-[76px] lg:h-[85px]">
+        <DepartmentSlider departments={departments} />
+      </div>
     </section>
   );
 }

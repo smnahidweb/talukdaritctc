@@ -9,6 +9,7 @@ import { Testimonials } from "@/components/home/Testimonials";
 import { FAQSection } from "@/components/home/FAQSection";
 import { AdmissionCTA } from "@/components/home/AdmissionCTA";
 import Slider from "@/components/home/DepartmentSlider";
+import DepartmentSlider from "@/components/home/DepartmentSlider";
 
 export const metadata: Metadata = {
   title:
@@ -29,6 +30,8 @@ export default function HomePage() {
     <div className="flex flex-col w-full">
       {/* 1. Hero + Department Category Strip */}
       <Hero />
+      {/* DEPARTMENT STRIP */}
+      <DepartmentSlider departments={[]} />
 
 
       {/* 2. About Preview */}
