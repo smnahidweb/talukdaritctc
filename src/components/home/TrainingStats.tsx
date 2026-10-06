@@ -25,7 +25,7 @@ const stats: Stat[] = [
         theme: "blue",
     },
     {
-        value: 8,
+        value: 6,
         suffix: "+",
         eyebrow: "Learning",
         title: "Courses & Programs",

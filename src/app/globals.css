@@ -100,6 +100,53 @@ select:focus-visible {
   }
 }
 
+ /* Animation classes for statistics  */
+.admission-cta-gradient {
+  background: linear-gradient(
+    110deg,
+    #0756a8 0%,
+    #0b74d1 18%,
+    #f97316 38%,
+    #ea580c 52%,
+    #f97316 68%,
+    #0b74d1 88%,
+    #0756a8 100%
+  );
+  background-size: 300% 100%;
+  animation: admission-gradient 5s ease infinite;
+}
+
+@keyframes admission-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .admission-cta-gradient {
+    animation: none;
+  }
+}
+
+.animate-admission-gradient {
+  animation: admission-gradient 5s ease infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-admission-gradient {
+    animation: none;
+  }
+}
+
+
 .animate-statistics-right {
   animation: statistics-right 32s linear infinite;
 }
