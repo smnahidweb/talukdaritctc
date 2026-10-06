@@ -66,7 +66,7 @@ export function AboutPreview() {
                   </p>
 
                   <p className="mt-0.5 text-sm font-extrabold text-[#062B52]">
-                    20 March 2024
+                    20 March 2021
                   </p>
                 </div>
               </div>
@@ -133,17 +133,13 @@ export function AboutPreview() {
               <span className="h-1.5 w-1.5 rounded-full bg-[#F97316]" />
 
               <p className="text-sm font-medium text-[#64748B]">
-                Talukdar IT &amp; Computer Training Centre · Prasadpur Bazar,
-                Manda, Naogaon
+                Talukdar IT &amp; Computer Training Centre · Upazila Gate-1, Prosadpur Bazar, Manda, Naogaon
               </p>
             </div>
 
             {/* Description */}
             <p className="mt-6 max-w-[620px] text-sm leading-7 text-[#64748B] sm:text-base">
-              We are a local IT and computer training centre committed to
-              providing practical, affordable and career-focused digital
-              skills training for students, homemakers, job seekers and
-              working professionals in Naogaon and surrounding areas.
+              Talukdar IT & Computer Training Centre (Govt. Reg. License No: 2026 6447 522000138) is your gateway to mastering practical, high-demand IT skills. Located in Prosadpur Bazar, Manda, we specialize in hands-on, affordable, and career-oriented training designed for students, job seekers, homemakers, and working professionals. Take the next step toward a successful digital career with expert guidance and industry-relevant courses
             </p>
 
             {/* =====================================================

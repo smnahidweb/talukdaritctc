@@ -53,6 +53,8 @@ export interface CareerItem {
 }
 
 export interface SiteContact {
+  linkedinUrl: string | undefined;
+  instagramUrl: string | undefined;
   phone: string;
   phoneDisplay: string;
   email: string;

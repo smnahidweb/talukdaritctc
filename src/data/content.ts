@@ -9,39 +9,27 @@ export interface DepartmentItem {
 export const departments: DepartmentItem[] = [
   {
     id: "dept-1",
-    title: "Office Applications",
+    title: "Computer Basic",
     icon: "🖥️",
-    href: "/courses#office",
+    href: "/courses/computer-basic-office-application",
   },
   {
     id: "dept-2",
-    title: "Computer Fundamentals",
-    icon: "💻",
-    href: "/courses#fundamentals",
+    title: "Graphic Design",
+    icon: "🎨",
+    href: "/courses/graphic-design",
   },
   {
     id: "dept-3",
-    title: "Web & Internet",
+    title: "Web Design",
     icon: "🌐",
-    href: "/courses#web",
+    href: "/courses/web-design",
   },
   {
     id: "dept-4",
-    title: "Typing & Documentation",
-    icon: "⌨️",
-    href: "/courses#typing",
-  },
-  {
-    id: "dept-5",
-    title: "Digital Literacy",
-    icon: "📱",
-    href: "/courses#digital",
-  },
-  {
-    id: "dept-6",
-    title: "Career Development",
-    icon: "🎯",
-    href: "/career",
+    title: "Digital Marketing",
+    icon: "📣",
+    href: "/courses/digital-marketing",
   },
 ];
 

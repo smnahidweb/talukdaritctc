@@ -1,61 +1,75 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight, BookOpen } from "lucide-react";
+import {
+  ArrowUpRight,
+  Monitor,
+  Palette,
+  Globe,
+  Megaphone,
+  type LucideIcon,
+} from "lucide-react";
 
 interface Department {
-    id: string | number;
-    title: string;
-    href: string;
+  id: string | number;
+  title: string;
+  href: string;
 }
 
 interface DepartmentSliderProps {
-    departments: Department[];
+  departments: Department[];
 }
 
+const departmentIcons: Record<string, LucideIcon> = {
+  "Computer Basic": Monitor,
+  "Graphic Design": Palette,
+  "Web Design": Globe,
+  "Digital Marketing": Megaphone,
+};
+
 export default function DepartmentSlider({
-    departments,
+  departments,
 }: DepartmentSliderProps) {
-    const animationDuration = Math.max(departments.length * 4, 24);
+  const animationDuration = Math.max(departments.length * 4, 24);
 
-    return (
-        <div className="department-slider relative border-y border-[#E2E8F0] bg-white">
-            {/* Top subtle highlight */}
-            <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-px bg-gradient-to-r from-transparent via-[#EA580C]/20 to-transparent" />
+  return (
+    <div className="department-slider relative border-y border-[#E2E8F0] bg-white">
+      {/* Top subtle highlight */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-px bg-gradient-to-r from-transparent via-[#EA580C]/20 to-transparent" />
 
-            {/* Left fade */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent sm:w-24 lg:w-32" />
+      {/* Left fade */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent sm:w-24 lg:w-32" />
 
-            {/* Right fade */}
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent sm:w-24 lg:w-32" />
+      {/* Right fade */}
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent sm:w-24 lg:w-32" />
 
-            <div className="overflow-hidden">
-                <div
-                    className="department-slider-track flex w-max"
-                    style={{
-                        animationDuration: `${animationDuration}s`,
-                    }}
-                >
-                    {/* First Set */}
-                    {departments.map((dept) => (
-                        <DepartmentItem
-                            key={`first-${dept.id}`}
-                            department={dept}
-                        />
-                    ))}
+      <div className="overflow-hidden">
+        <div
+          className="department-slider-track flex w-max"
+          style={{
+            animationDuration: `${animationDuration}s`,
+          }}
+        >
+          {/* First Set */}
+          {departments.map((dept) => (
+            <DepartmentItem
+              key={`first-${dept.id}`}
+              department={dept}
+            />
+          ))}
 
-                    {/* Duplicate Set */}
-                    {departments.map((dept) => (
-                        <DepartmentItem
-                            key={`second-${dept.id}`}
-                            department={dept}
-                            ariaHidden
-                        />
-                    ))}
-                </div>
-            </div>
+          {/* Duplicate Set */}
+          {departments.map((dept) => (
+            <DepartmentItem
+              key={`second-${dept.id}`}
+              department={dept}
+              ariaHidden
+            />
+          ))}
+        </div>
+      </div>
 
-            <style jsx>{`
+      <style jsx>{`
         .department-slider-track {
           animation-name: department-slide;
           animation-timing-function: linear;
@@ -83,25 +97,28 @@ export default function DepartmentSlider({
           }
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 }
 
 interface DepartmentItemProps {
-    department: Department;
-    ariaHidden?: boolean;
+  department: Department;
+  ariaHidden?: boolean;
 }
 
 function DepartmentItem({
-    department,
-    ariaHidden = false,
+  department,
+  ariaHidden = false,
 }: DepartmentItemProps) {
-    return (
-        <Link
-            href={department.href}
-            aria-hidden={ariaHidden}
-            tabIndex={ariaHidden ? -1 : undefined}
-            className="
+  const Icon =
+    departmentIcons[department.title] ?? Monitor;
+
+  return (
+    <Link
+      href={department.href}
+      aria-hidden={ariaHidden}
+      tabIndex={ariaHidden ? -1 : undefined}
+      className="
         group
         relative
         flex
@@ -120,10 +137,10 @@ function DepartmentItem({
         lg:h-[85px]
         lg:w-[16.666vw]
       "
-        >
-            {/* Hover Background */}
-            <span
-                className="
+    >
+      {/* Hover Background */}
+      <span
+        className="
           absolute
           inset-[7px]
           rounded-xl
@@ -135,13 +152,13 @@ function DepartmentItem({
           group-hover:scale-100
           group-hover:opacity-100
         "
-            />
+      />
 
-            {/* Content */}
-            <span className="relative z-[1] flex items-center gap-3">
-                {/* Icon */}
-                <span
-                    className="
+      {/* Content */}
+      <span className="relative z-[1] flex items-center gap-3">
+        {/* Icon */}
+        <span
+          className="
             flex
             h-10
             w-10
@@ -156,27 +173,28 @@ function DepartmentItem({
             shadow-sm
             transition-all
             duration-300
+            group-hover:-translate-y-0.5
             group-hover:border-[#EA580C]/20
             group-hover:bg-white
             group-hover:shadow-md
             group-hover:shadow-[#EA580C]/10
-            group-hover:-translate-y-0.5
           "
-                >
-                    <BookOpen
-                        className="
+        >
+          <Icon
+            className="
               h-[18px]
               w-[18px]
               transition-transform
               duration-300
               group-hover:scale-110
             "
-                    />
-                </span>
+            strokeWidth={1.8}
+          />
+        </span>
 
-                {/* Full Title */}
-                <span
-                    className="
+        {/* Service Title */}
+        <span
+          className="
             max-w-[160px]
             text-left
             text-[13px]
@@ -189,13 +207,13 @@ function DepartmentItem({
             sm:max-w-[190px]
             sm:text-sm
           "
-                >
-                    {department.title}
-                </span>
+        >
+          {department.title}
+        </span>
 
-                {/* Soft Arrow */}
-                <span
-                    className="
+        {/* Soft Arrow */}
+        <span
+          className="
             ml-1
             hidden
             h-7
@@ -218,10 +236,10 @@ function DepartmentItem({
             group-hover:opacity-100
             sm:flex
           "
-                >
-                    <ArrowUpRight className="h-3.5 w-3.5" />
-                </span>
-            </span>
-        </Link>
-    );
+        >
+          <ArrowUpRight className="h-3.5 w-3.5" />
+        </span>
+      </span>
+    </Link>
+  );
 }

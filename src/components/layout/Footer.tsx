@@ -52,17 +52,55 @@ export function Footer() {
                     <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
                   </svg>
                 </a>
-                <a
-                  href={siteConfig.contact.youtubeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded bg-red-700/60 hover:bg-red-600 text-white flex items-center justify-center transition-colors"
-                  aria-label="YouTube"
-                >
-                  <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
-                    <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z" />
-                  </svg>
-                </a>
+                        {/* LinkedIn */}
+                                  <a
+                                    href={siteConfig.contact.linkedinUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex w-8 h-8 rounded bg-blue-800/70 hover:bg-[#0756A8] text-white flex items-center justify-center transition-colors"
+                                    aria-label="LinkedIn"
+                                  >
+                                    <svg
+                                      viewBox="0 0 24 24"
+                                      className="h-3 w-3"
+                                      fill="currentColor"
+                                    >
+                                      <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A2.06 2.06 0 003.19 5.06c0 1.14.92 2.06 2.06 2.06s2.06-.92 2.06-2.06A2.06 2.06 0 005.25 3ZM20.44 13.03c0-3.46-1.84-5.07-4.29-5.07-1.97 0-2.85 1.08-3.34 1.84V8.5H9.43V20h3.38v-5.69c0-1.5.28-2.95 2.14-2.95 1.84 0 1.87 1.72 1.87 3.05V20h3.38l.24-6.97Z" />
+                                    </svg>
+                                  </a>
+                      
+                                  {/* Instagram */}
+                                  <a
+                                    href={siteConfig.contact.instagramUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex w-8 h-8 rounded bg-pink-600/80 hover:bg-pink-600 text-white flex items-center justify-center transition-colors"
+                                    aria-label="Instagram"
+                                  >
+                                    <svg
+                                      viewBox="0 0 24 24"
+                                      className="h-3 w-3"
+                                      fill="none"
+                                      stroke="currentColor"
+                                      strokeWidth="2"
+                                    >
+                                      <rect
+                                        x="3"
+                                        y="3"
+                                        width="18"
+                                        height="18"
+                                        rx="5"
+                                      />
+                                      <circle cx="12" cy="12" r="4" />
+                                      <circle
+                                        cx="17.5"
+                                        cy="6.5"
+                                        r="1"
+                                        fill="currentColor"
+                                        stroke="none"
+                                      />
+                                    </svg>
+                                  </a>
               </div>
             </div>
           </div>
@@ -141,7 +179,7 @@ export function Footer() {
       <div className="border-t border-blue-900/60 py-4">
         <Container>
           <p className="text-xs text-slate-500 text-center uppercase tracking-wide">
-            Copyright &copy; {year} Talukdar IT &amp; Computer Training Centre. All rights reserved.
+            Copyright &copy; 2021 - {year} Talukdar IT &amp; Computer Training Centre. All rights reserved.
           </p>
         </Container>
       </div>

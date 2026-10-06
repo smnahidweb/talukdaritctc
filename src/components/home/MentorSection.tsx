@@ -3,44 +3,75 @@
 import * as React from "react";
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
+import { em } from "motion/react-client";
 
 const teamMembers = [
   {
     id: 1,
-    name: "Md. Tarek Hossain",
-    designation: "Director & Principal",
+    name: "Md.Tarikul Talukdar",
+    designation: "Director",
     description:
       "Experienced trainer focused on practical computer skills, office applications, and digital productivity.",
     phone: "+880 1751-525294",
+    organization: "Talukdar IT & Computer Training Centre",
+    email: "tarikul@talukdarit.com",
     image: "/mentor.jpg",
   },
   {
     id: 2,
-    name: "M. Sobuj Kumar",
-    designation: "Graphic Design Instructor",
+    name: "Amit Sarkar",
+    designation: "Manager",
+    organization: "Talukdar IT & Computer Training Centre",
     description:
-      "Passionate about helping learners develop creative skills through practical design projects and guided training.",
-    phone: "+880 1XXX-XXXXXX",
+      "Skilled in managing training programs, coordinating with instructors, and ensuring a smooth learning experience for students.",
+    phone: "+8801759594371",
+    email: "amit@talukdaritc.com",
     image: "/mentor2.jpg",
   },
   {
     id: 3,
-    name: "Suhad Talukder",
-    designation: "Web Design Instructor",
+    name: "Md. Amerul Islam Rana",
+    designation: "Lead Instructor",
+    organization: "Talukdar IT & Computer Training Centre",
     description:
       "Specialized in practical web design training with a focus on modern, responsive, and user-friendly websites.",
-    phone: "+880 1XXX-XXXXXX",
+    phone: "+8801712240674",
+    email: "Aminulislam.rana@gmail.com",
     image: "/mentor3.jpg",
   },
   {
     id: 4,
-    name: "Ms. Orpon Mohonto",
-    designation: "Digital Marketing Trainer",
+    name: "Md. Nayeem Mridha",
+    designation: "IT Instructor",
+    organization: "Talukdar IT & Computer Training Centre",
     description:
       "Helps learners understand digital marketing, social media, content strategy, and online promotion.",
-    phone: "+880 1XXX-XXXXXX",
+    phone: "+8801787771901",
+    email: "mridhanayeem749@gmail.com",
     image: "/mentor.jpg",
   },
+  {
+    id: 5,
+    name: "Shakil Khan (Arafat)",
+    designation: "Academic Mentor",
+    organization: "Talukdar IT & Computer Training Centre",
+    description:
+      "Guides students through core academic modules, technical skill development, and career orientation.",
+    phone: "+8801786231219",
+    email: "mdshakilkhanbdcom51@gmail.com",
+    image: "/mentor2.jpg",
+  },
+  {
+    id: 6,
+    name: "Md. Moniruzzaman",
+    designation: "Lab Assistant & IT Support",
+    organization: "Talukdar IT & Computer Training Centre",
+    description:
+      "Provides hands-on technical support, laboratory management, and assists students during practical sessions.",
+    phone: "+8801342180828",
+    email: "muniruruzzamanmd876@gmail.com",
+    image: "/mentor3.jpg",
+  }
 ];
 
 export function MentorSection() {
@@ -234,6 +265,10 @@ export function MentorSection() {
                         {member.description}
                       </p>
 
+                      <p className="mt-2 text-sm font-semibold text-gray-600 transition-colors duration-300 group-hover:text-brand-text">
+                        {member.organization}
+                      </p>
+
                       <div className="my-5 h-px bg-brand-border" />
 
                       <div className="flex items-center justify-between gap-4">
@@ -242,11 +277,14 @@ export function MentorSection() {
                             Contact
                           </p>
 
-                          <p className="mt-1 truncate text-sm font-semibold text-brand-text">
+                          <p className="mt-1 truncate text-sm font-semibold text-gray-600 transition-colors duration-300 group-hover:text-brand-text">
                             {member.phone}
                           </p>
+                          <p className="mt-1 truncate text-sm font-semibold text-gray-600 transition-colors duration-300 group-hover:text-brand-text">
+                            {member.email}
+                          </p>
                         </div>
-
+                         
                         <a
                           href={`tel:${member.phone.replace(/\s/g, "")}`}
                           aria-label={`Call ${member.name}`}
