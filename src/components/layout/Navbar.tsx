@@ -1,9 +1,10 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, ChevronDown, GraduationCap } from "lucide-react";
+import { Menu, ChevronDown } from "lucide-react";
 
 import { mainNavItems, ctaNavItem } from "@/data/navigation";
 import { Container } from "@/components/shared/Container";
@@ -18,30 +19,19 @@ export function Navbar() {
     <>
       <header className="sticky top-0 z-40 border-b border-[#E2E8F0] bg-white shadow-xs">
         <Container className="flex h-18 items-center justify-between sm:h-20">
-          {/* Logo & Brand Identity */}
           <Link
             href="/"
-            className="group flex shrink-0 items-center gap-3 rounded-lg focus-visible:outline-2 focus-visible:outline-[#0756A8]"
+            className="flex shrink-0 items-center rounded-lg focus-visible:outline-2 focus-visible:outline-[#0756A8]"
             aria-label="Talukdar IT & Computer Training Centre"
           >
-            {/* Emblem Badge */}
-            <div className="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-blue-200 bg-gradient-to-br from-[#0756A8] to-[#062B52] text-white shadow-sm sm:h-12 sm:w-12">
-              <GraduationCap className="h-6 w-6 text-white" />
-
-              <span className="absolute -bottom-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full border-2 border-white bg-[#F97316] text-[8px] font-black">
-                ★
-              </span>
-            </div>
-
-            <div className="flex flex-col">
-              <span className="text-lg font-extrabold leading-tight tracking-tight text-[#062B52] transition-colors group-hover:text-[#0756A8] sm:text-xl">
-                Talukdar IT
-              </span>
-
-              <span className="text-[11px] font-semibold tracking-tight text-[#64748B] sm:text-xs">
-                &amp; Computer Training Centre
-              </span>
-            </div>
+            <Image
+              src="/logo.png"
+              alt=""
+              width={1524}
+              height={505}
+              priority
+              className="h-auto w-36 sm:w-56"
+            />
           </Link>
 
           {/* Desktop Navigation */}
