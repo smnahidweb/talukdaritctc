@@ -16,6 +16,9 @@ export const siteConfig: SiteConfig = {
     workingHours: "Mon - Sat: 9:00 AM - 8:00 PM",
     whatsappUrl: "https://wa.me/8801751525294",
     facebookUrl: "https://facebook.com/talukdaritctc",
+     
     youtubeUrl: "https://youtube.com/@talukdaritctc",
+      linkedinUrl: "https://www.linkedin.com/",
+  instagramUrl: "https://www.instagram.com/",
   },
 };
