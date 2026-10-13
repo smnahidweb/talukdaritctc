@@ -181,6 +181,17 @@ export function Footer() {
           <p className="text-xs text-slate-500 text-center uppercase tracking-wide">
             Copyright &copy; 2021 - {year} Talukdar IT &amp; Computer Training Centre. All rights reserved.
           </p>
+          <p className="mt-1 text-[11px] text-slate-500 text-center">
+            Designed &amp; Developed by{" "}
+            <a
+              href="https://www.varendratech.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#F8FAFC] hover:text-[#F8FAFC] transition-colors"
+            >
+              Varendra Technologies Ltd.
+            </a>
+          </p>
         </Container>
       </div>
     </footer>
