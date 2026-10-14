@@ -1,7 +1,9 @@
-
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/data/site";
 import { coursesData } from "@/data/courses";
+
+// Static export-এর জন্য এই লাইনটি যোগ করা হয়েছে
+export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url.replace(/\/$/, "");
