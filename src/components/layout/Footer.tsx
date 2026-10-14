@@ -1,6 +1,7 @@
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { GraduationCap, Phone, MapPin, Clock, ArrowRight } from "lucide-react";
+import { Phone, MapPin, Clock, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/data/site";
 import { coursesData } from "@/data/courses";
 import { Container } from "@/components/shared/Container";
@@ -24,14 +25,18 @@ export function Footer() {
         <div className="py-10 sm:py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 border-b border-blue-900/50">
           {/* Col 1: Brand + Social */}
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#0756A8] flex items-center justify-center shrink-0 border border-blue-700">
-                <GraduationCap className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <p className="text-base font-extrabold text-white leading-tight">Talukdar IT</p>
-                <p className="text-[11px] text-slate-400">Computer Training Centre</p>
-              </div>
+            <Link
+              href="/"
+              aria-label="Talukdar IT & Computer Training Centre"
+              className="inline-flex rounded-lg bg-white p-1"
+            >
+              <Image
+                src="/logo.png"
+                alt=""
+                width={1524}
+                height={505}
+                className="h-auto w-36 sm:w-56"
+              />
             </Link>
 
             <p className="text-sm text-slate-400 leading-relaxed">
