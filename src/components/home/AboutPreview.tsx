@@ -44,7 +44,7 @@ export function AboutPreview() {
             {/* Main image */}
             <div className="relative z-10 aspect-[4/3] overflow-hidden rounded-[24px] border border-white bg-[#F8FAFC] shadow-[0_20px_60px_rgba(15,23,42,0.12)]">
               <Image
-                src="/images/institute/storefront.jpg"
+                src="/talukdar_it_classroom.png"
                 alt="Talukdar IT & Computer Training Centre building in Prasadpur Bazar, Manda, Naogaon"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -79,7 +79,7 @@ export function AboutPreview() {
             <div className="absolute -bottom-9 -right-4 z-20 hidden w-[54%] sm:block lg:-right-8">
               <div className="relative aspect-[4/3] overflow-hidden rounded-[20px] border-[5px] border-white bg-[#F8FAFC] shadow-[0_18px_45px_rgba(15,23,42,0.18)]">
                 <Image
-                  src="/images/institute/lab-classroom.jpg"
+                  src="/talukdar_it_frontdesk.png"
                   alt="Students practicing in computer training lab"
                   fill
                   sizes="30vw"

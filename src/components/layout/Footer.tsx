@@ -107,7 +107,7 @@ export function Footer() {
 
           {/* Col 2: Useful Links */}
           <div className="space-y-4">
-            <h3 className="text-sm font-bold text-white">Useful Links</h3>
+            <h3 className="text-sm font-bold text-[#F8FAFC]">Useful Links</h3>
             <ul className="space-y-2">
               {usefulLinks.map((link) => (
                 <li key={link.href}>
@@ -125,7 +125,7 @@ export function Footer() {
 
           {/* Col 3: Popular Courses */}
           <div className="space-y-4">
-            <h3 className="text-sm font-bold text-white">Popular Courses</h3>
+            <h3 className="text-sm font-bold text-[#F8FAFC]">Popular Courses</h3>
             <ul className="space-y-2">
               {coursesData.map((course) => (
                 <li key={course.slug}>
@@ -143,7 +143,7 @@ export function Footer() {
 
           {/* Col 4: Contact */}
           <div className="space-y-4">
-            <h3 className="text-sm font-bold text-white">Contact Us</h3>
+            <h3 className="text-sm font-bold text-[#F8FAFC]">Contact Us</h3>
             <ul className="space-y-3 text-sm">
               <li>
                 <a

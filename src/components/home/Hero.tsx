@@ -177,7 +177,7 @@ export function Hero() {
                 {/* Main Image */}
                 <div className="relative aspect-[16/9] overflow-hidden rounded-[20px] border-4 border-white bg-[#F8FAFC] shadow-2xl sm:aspect-[4/3] sm:rounded-[24px]">
                   <Image
-                    src="/images/hero/hero-lab.jpg"
+                    src="/talukdar_it_frontdesk.png"
                     alt="Students learning computer skills at Talukdar IT & Computer Training Centre"
                     fill
                     priority

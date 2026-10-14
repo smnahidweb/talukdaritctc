@@ -81,7 +81,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="relative overflow-hidden rounded-[28px]">
                 <Image
-                  src="/images/institute/lab-classroom.jpg"
+                  src="/talukdar_it_frontdesk.png"
                   alt="Instructor at Talukdar IT & Computer Training Centre"
                   width={900}
                   height={700}

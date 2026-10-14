@@ -1,9 +1,9 @@
+
 "use client";
 
 import * as React from "react";
 import Image from "next/image";
 import { Container } from "@/components/shared/Container";
-import { em } from "motion/react-client";
 
 const teamMembers = [
   {
@@ -15,7 +15,7 @@ const teamMembers = [
     phone: "+880 1751-525294",
     organization: "Talukdar IT & Computer Training Centre",
     email: "tarikul@talukdarit.com",
-    image: "/mentor.jpg",
+    image: "/tarikul_director.jpeg",
   },
   {
     id: 2,
@@ -25,19 +25,19 @@ const teamMembers = [
     description:
       "Skilled in managing training programs, coordinating with instructors, and ensuring a smooth learning experience for students.",
     phone: "+8801759594371",
-    email: "amit@talukdaritc.com",
-    image: "/mentor2.jpg",
+    email: "manager@talukdaritc.com",
+    image: "/amit_manager.jpeg",
   },
   {
     id: 3,
-    name: "Md. Amerul Islam Rana",
+    name: "Md. Aminul Islam Rana",
     designation: "Lead Instructor",
     organization: "Talukdar IT & Computer Training Centre",
     description:
       "Specialized in practical web design training with a focus on modern, responsive, and user-friendly websites.",
     phone: "+8801712240674",
     email: "Aminulislam.rana@gmail.com",
-    image: "/mentor3.jpg",
+    image: "/aminul.jpeg",
   },
   {
     id: 4,
@@ -48,7 +48,7 @@ const teamMembers = [
       "Helps learners understand digital marketing, social media, content strategy, and online promotion.",
     phone: "+8801787771901",
     email: "mridhanayeem749@gmail.com",
-    image: "/mentor.jpg",
+    image: "/Nayeem_it_instructor.jpeg",
   },
   {
     id: 5,
@@ -59,7 +59,7 @@ const teamMembers = [
       "Guides students through core academic modules, technical skill development, and career orientation.",
     phone: "+8801786231219",
     email: "mdshakilkhanbdcom51@gmail.com",
-    image: "/mentor2.jpg",
+    image: "/arafat_shakil.jpeg",
   },
   {
     id: 6,
@@ -70,8 +70,8 @@ const teamMembers = [
       "Provides hands-on technical support, laboratory management, and assists students during practical sessions.",
     phone: "+8801342180828",
     email: "muniruruzzamanmd876@gmail.com",
-    image: "/mentor3.jpg",
-  }
+    image: "/monirujjaman_lab.jpeg",
+  },
 ];
 
 export function MentorSection() {
@@ -92,7 +92,6 @@ export function MentorSection() {
     };
 
     updateVisibleCards();
-
     window.addEventListener("resize", updateVisibleCards);
 
     return () => {
@@ -100,16 +99,8 @@ export function MentorSection() {
     };
   }, []);
 
-  /*
-   * We create:
-   *
-   * [1 2 3 4] [1 2 3 4] [1 2 3 4]
-   *
-   * Starting from the second set.
-   * This allows the carousel to continuously move.
-   */
-  const sliderItems = React.useMemo(() => {
-    return [
+  const sliderItems = React.useMemo(
+    () => [
       ...teamMembers.map((member) => ({
         ...member,
         uniqueId: `before-${member.id}`,
@@ -122,15 +113,12 @@ export function MentorSection() {
         ...member,
         uniqueId: `after-${member.id}`,
       })),
-    ];
-  }, []);
+    ],
+    []
+  );
 
-  /*
-   * Reset position without animation after reaching
-   * the duplicated set.
-   */
   React.useEffect(() => {
-    if (sliderIndex >= 7) {
+    if (sliderIndex >= teamMembers.length + 3) {
       const timeout = setTimeout(() => {
         setIsTransitioning(false);
         setSliderIndex(3);
@@ -146,12 +134,6 @@ export function MentorSection() {
     }
   }, [sliderIndex]);
 
-  /*
-   * Auto slide.
-   *
-   * 3 seconds gives enough time to read the card
-   * while keeping the section dynamic.
-   */
   React.useEffect(() => {
     const interval = setInterval(() => {
       setSliderIndex((previous) => previous + 1);
@@ -165,20 +147,17 @@ export function MentorSection() {
   }, []);
 
   const handleIndicatorClick = (index: number) => {
-    const current = activeIndex;
-
-    let difference = index - current;
-
-    if (difference < 0) {
-      difference += teamMembers.length;
-    }
+    const difference =
+      index >= activeIndex
+        ? index - activeIndex
+        : teamMembers.length - activeIndex + index;
 
     setSliderIndex((previous) => previous + difference);
     setActiveIndex(index);
   };
 
   return (
-    <section className="relative overflow-hidden  bg-brand-bg py-20 sm:py-24 lg:py-28">
+    <section className="relative overflow-hidden bg-brand-bg py-20 sm:py-24 lg:py-28">
       {/* Background accents */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute -left-40 top-20 h-80 w-80 rounded-full bg-blue-100/50 blur-3xl" />
@@ -195,9 +174,8 @@ export function MentorSection() {
             Our Team
           </span>
 
-          <h2 className="text-xs font-bold tracking-tight text-brand-text sm:text-4xl lg:text-5xl">
-            Meet Our{" "}
-            <span className="text-primary">Team</span>
+          <h2 className="text-3xl font-bold tracking-tight text-brand-text sm:text-4xl lg:text-5xl">
+            Meet Our <span className="text-primary">Team</span>
           </h2>
 
           <div className="mx-auto mt-5 flex items-center justify-center gap-1.5">
@@ -207,24 +185,25 @@ export function MentorSection() {
 
           <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-brand-muted sm:text-base">
             Meet the experienced professionals who bring knowledge,
-            dedication, and practical guidance to every learner's journey.
+            dedication, and practical guidance to every learner&apos;s journey.
           </p>
         </div>
 
-        {/* Slider Container */}
+        {/* Slider container */}
         <div className="relative rounded-[32px] border border-brand-blue-border bg-white/70 px-3 py-3 sm:px-4 sm:py-4 lg:px-5 lg:py-5">
-          {/* Subtle container glow */}
           <div className="pointer-events-none absolute inset-0 rounded-[32px] ring-1 ring-inset ring-white" />
 
           <div className="overflow-hidden rounded-[24px]">
             <div
-              className={`flex ${isTransitioning
-                ? "transition-transform duration-600 ease-[cubic-bezier(0.22,1,0.36,1)]"
-                : ""
-                }`}
+              className={`flex ${
+                isTransitioning
+                  ? "transition-transform duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
+                  : ""
+              }`}
               style={{
-                transform: `translateX(-${sliderIndex * (100 / visibleCards)
-                  }%)`,
+                transform: `translateX(-${
+                  sliderIndex * (100 / visibleCards)
+                }%)`,
               }}
             >
               {sliderItems.map((member) => (
@@ -232,9 +211,9 @@ export function MentorSection() {
                   key={member.uniqueId}
                   className="w-full shrink-0 px-2 sm:w-1/2 sm:px-2.5 lg:w-1/3 lg:px-3"
                 >
-                  <article className="group relative h-full overflow-hidden rounded-[24px] border border-brand-border bg-white transition-all duration-400 hover:border-orange-200">
+                  <article className="group relative h-full overflow-hidden rounded-[24px] border border-brand-border bg-white transition-colors duration-300 hover:border-orange-200">
                     {/* Top accent */}
-                    <div className="absolute left-6 right-6 top-0 z-10 h-1 origin-left scale-x-0 rounded-b-full bg-accent transition-transform duration-500 group-hover:scale-x-100" />
+                    <div className="absolute left-6 right-6 top-0 z-20 h-1 origin-left scale-x-0 rounded-b-full bg-accent transition-transform duration-500 group-hover:scale-x-100" />
 
                     {/* Image */}
                     <div className="relative aspect-[4/3] overflow-hidden bg-brand-blue-light">
@@ -243,13 +222,15 @@ export function MentorSection() {
                         alt={member.name}
                         fill
                         sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                        className="object-contain object-center"
                       />
 
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#062B52]/30 via-transparent to-transparent" />
+                      {/* Image overlay */}
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#062B52]/45 via-transparent to-transparent" />
 
-                      <div className="absolute bottom-4 left-4">
-                        <span className="inline-flex rounded-full border border-white/40 bg-white/90 px-3 py-1.5 text-[11px] font-bold text-primary backdrop-blur-sm">
+                      {/* Designation */}
+                      <div className="absolute bottom-4 left-4 z-10">
+                        <span className="inline-flex rounded-full border border-white/40 bg-white/95 px-3 py-1.5 text-[11px] font-bold text-primary shadow-sm backdrop-blur-sm">
                           {member.designation}
                         </span>
                       </div>
@@ -272,23 +253,30 @@ export function MentorSection() {
                       <div className="my-5 h-px bg-brand-border" />
 
                       <div className="flex items-center justify-between gap-4">
-                        <div className="min-w-0">
+                        <div className="min-w-0 flex-1">
                           <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-accent">
                             Contact
                           </p>
 
-                          <p className="mt-1 truncate text-sm font-semibold text-gray-600 transition-colors duration-300 group-hover:text-brand-text">
+                          <a
+                            href={`tel:${member.phone.replace(/[^\d+]/g, "")}`}
+                            className="mt-1 block truncate text-sm font-semibold text-gray-600 transition-colors hover:text-primary"
+                          >
                             {member.phone}
-                          </p>
-                          <p className="mt-1 truncate text-sm font-semibold text-gray-600 transition-colors duration-300 group-hover:text-brand-text">
+                          </a>
+
+                          <a
+                            href={`mailto:${member.email}`}
+                            className="mt-1 block truncate text-sm font-semibold text-gray-600 transition-colors hover:text-primary"
+                          >
                             {member.email}
-                          </p>
+                          </a>
                         </div>
-                         
+
                         <a
-                          href={`tel:${member.phone.replace(/\s/g, "")}`}
+                          href={`tel:${member.phone.replace(/[^\d+]/g, "")}`}
                           aria-label={`Call ${member.name}`}
-                          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary text-white transition-all duration-300 hover:bg-accent"
+                          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary text-white transition-colors duration-300 hover:bg-accent"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -297,6 +285,7 @@ export function MentorSection() {
                             stroke="currentColor"
                             strokeWidth="1.8"
                             className="h-5 w-5"
+                            aria-hidden="true"
                           >
                             <path
                               strokeLinecap="round"
@@ -325,13 +314,15 @@ export function MentorSection() {
                     type="button"
                     onClick={() => handleIndicatorClick(index)}
                     aria-label={`Go to ${member.name}`}
+                    aria-current={isActive ? "true" : undefined}
                     className="group flex h-5 items-center"
                   >
                     <span
-                      className={`block rounded-full transition-all duration-500 ${isActive
-                        ? "h-1.5 w-9 bg-accent"
-                        : "h-1.5 w-2 bg-slate-300 group-hover:bg-primary/50"
-                        }`}
+                      className={`block rounded-full transition-all duration-500 ${
+                        isActive
+                          ? "h-1.5 w-9 bg-accent"
+                          : "h-1.5 w-2 bg-slate-300 group-hover:bg-primary/50"
+                      }`}
                     />
                   </button>
                 );
