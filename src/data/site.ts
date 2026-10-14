@@ -6,7 +6,7 @@ export const siteConfig: SiteConfig = {
   tagline: "Practical IT and computer training for a better digital future.",
   description:
     "Talukdar IT & Computer Training Centre is a computer and IT training centre focused on helping students develop practical digital skills for education, employment, freelancing and career growth.",
-  url: "https://talukdaritctc.com",
+  url: "https://www.talukdaritc.com",
   contact: {
     phone: "+8801751525294",
     phoneDisplay: "+880 1751-525294",
