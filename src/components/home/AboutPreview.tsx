@@ -49,6 +49,8 @@ export function AboutPreview() {
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover transition-transform duration-700 hover:scale-[1.02]"
+                priority
+                loading="eager"
               />
 
               {/* Image overlay */}
@@ -84,6 +86,8 @@ export function AboutPreview() {
                   fill
                   sizes="30vw"
                   className="object-cover transition-transform duration-700 hover:scale-[1.03]"
+                  priority
+                  loading="eager"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-[#062B52]/30 via-transparent to-transparent" />

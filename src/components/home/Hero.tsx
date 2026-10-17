@@ -181,6 +181,7 @@ export function Hero() {
                     alt="Students learning computer skills at Talukdar IT & Computer Training Centre"
                     fill
                     priority
+                    loading="eager"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover"
                   />
