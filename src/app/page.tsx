@@ -25,9 +25,9 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title:
-      "Talukdar IT & Computer Training Centre | Prasadpur Bazar, Manda, Naogaon",
+      "Talukdar IT & Computer Training Centre | Prosadpur Bazar, Manda, Naogaon",
     description:
-      "Practical IT and computer training in Prasadpur Bazar, Manda, Naogaon. Learn Microsoft Office, computer fundamentals, web design and digital skills.",
+      "Practical IT and computer training in Prosadpur Bazar, Manda, Naogaon. Learn Microsoft Office, computer fundamentals, web design and digital skills.",
     url: "https://www.talukdaritc.com",
     siteName: "Talukdar IT & Computer Training Centre",
     locale: "bn_BD",
@@ -36,9 +36,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Talukdar IT & Computer Training Centre | Prasadpur Bazar, Manda, Naogaon",
+      "Talukdar IT & Computer Training Centre | Prosadpur Bazar, Manda, Naogaon",
     description:
-      "Practical IT and computer training in Prasadpur Bazar, Manda, Naogaon. Learn Microsoft Office, computer fundamentals, web design and digital skills.",
+      "Practical IT and computer training in Prosadpur Bazar, Manda, Naogaon. Learn Microsoft Office, computer fundamentals, web design and digital skills.",
   },
 };
 
