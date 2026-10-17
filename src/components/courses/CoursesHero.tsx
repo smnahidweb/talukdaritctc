@@ -56,7 +56,7 @@ export function CoursesHero() {
 
                         {/* Actions */}
                         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                            <Link
+                            <Link prefetch={false}
                                 href="#courses"
                                 className="group inline-flex items-center justify-center gap-2.5 rounded-xl bg-primary px-6 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-hover"
                             >
@@ -67,7 +67,7 @@ export function CoursesHero() {
                                 />
                             </Link>
 
-                            <Link
+                            <Link prefetch={false}
                                 href="/admission"
                                 className="group inline-flex items-center justify-center gap-2.5 rounded-xl border border-brand-border bg-white px-6 py-3.5 text-sm font-semibold text-brand-text transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary"
                             >
@@ -197,7 +197,7 @@ export function CoursesHero() {
                                     </p>
                                 </div>
 
-                                <Link
+                                <Link prefetch={false}
                                     href="#courses"
                                     className="group flex items-center gap-2 text-xs font-bold text-primary"
                                 >

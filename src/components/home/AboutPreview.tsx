@@ -168,7 +168,7 @@ export function AboutPreview() {
             ====================================================== */}
 
             <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-              <Link
+              <Link prefetch={false}
                 href="/about"
                 className="group inline-flex items-center gap-2.5 rounded-lg bg-[#0756A8] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(7,86,168,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#062B52] hover:shadow-[0_12px_28px_rgba(7,86,168,0.22)]"
               >

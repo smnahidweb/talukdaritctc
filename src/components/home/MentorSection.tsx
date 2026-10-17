@@ -8,13 +8,13 @@ import { Container } from "@/components/shared/Container";
 const teamMembers = [
   {
     id: 1,
-    name: "Md.Tarikul Talukdar",
+    name: "Md Tarikul Talukdar",
     designation: "Director",
     description:
       "Experienced trainer focused on practical computer skills, office applications, and digital productivity.",
     phone: "+880 1751-525294",
     organization: "Talukdar IT & Computer Training Centre",
-    email: "tarikul@talukdarit.com",
+    email: "tarikultalukdar07@gmail.com",
     image: "/tarikul_director.jpeg",
   },
   {

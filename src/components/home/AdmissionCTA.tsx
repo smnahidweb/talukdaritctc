@@ -18,19 +18,19 @@ export function AdmissionCTA() {
 
           {/* Three CTA buttons — matches rayhansict.com footer-top */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
-            <Link
+            <Link prefetch={false}
               href="/admission"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-[#F97316] hover:bg-[#EA580C] text-white font-bold shadow-sm transition-colors w-full sm:w-auto"
             >
               Apply For Demo Class
             </Link>
-            <Link
+            <Link prefetch={false}
               href="/courses"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md border border-white/30 hover:bg-white/10 text-white font-semibold transition-colors w-full sm:w-auto"
             >
               Our Courses
             </Link>
-            <Link
+            <Link prefetch={false}
               href="/forum"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-white/10 hover:bg-white/20 text-white font-semibold transition-colors w-full sm:w-auto"
             >

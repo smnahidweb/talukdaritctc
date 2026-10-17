@@ -125,7 +125,7 @@ export function Hero() {
 
                 {/* CTA Buttons */}
                 <div className="mt-5 flex flex-col gap-2.5 sm:mt-7 sm:flex-row sm:gap-3">
-                  <Link
+                  <Link prefetch={false}
                     href="/courses"
                     className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#0756A8] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#0756A8]/20 transition-all duration-300 hover:bg-[#062B52] hover:shadow-xl sm:px-6 sm:py-3.5 sm:text-base"
                   >
@@ -133,7 +133,7 @@ export function Hero() {
                     <ArrowRight className="h-4 w-4" />
                   </Link>
 
-                  <Link
+                  <Link prefetch={false}
                     href="/admission"
                     className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#F97316] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#F97316]/20 transition-all duration-300 hover:bg-[#EA580C] hover:shadow-xl sm:px-6 sm:py-3.5 sm:text-base"
                   >

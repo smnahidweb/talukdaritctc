@@ -36,7 +36,7 @@ export function PageHeader({
               <React.Fragment key={index}>
                 {index > 0 && <ChevronRight className="w-3.5 h-3.5 text-slate-400" />}
                 {crumb.href && !isLast ? (
-                  <Link
+                  <Link prefetch={false}
                     href={crumb.href}
                     className="hover:text-[#0756A8] transition-colors"
                   >

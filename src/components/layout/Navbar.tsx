@@ -19,18 +19,18 @@ export function Navbar() {
     <>
       <header className="sticky top-0 z-40 border-b border-[#E2E8F0] bg-white shadow-xs">
         <Container className="flex h-18 items-center justify-between sm:h-20">
-          <Link
+          <Link prefetch={false}
             href="/"
             className="flex shrink-0 items-center rounded-lg focus-visible:outline-2 focus-visible:outline-[#0756A8]"
             aria-label="Talukdar IT & Computer Training Centre"
           >
             <Image
-              src="/logo.png"
+              src="/logo4.png"
               alt=""
-              width={1524}
-              height={505}
+              width={1500}
+              height={1500}
               priority
-              className="h-auto w-36 sm:w-56"
+              className="h-16 w-16 sm:h-18 sm:w-18"
             />
           </Link>
 
@@ -44,7 +44,7 @@ export function Navbar() {
               const isCourses = item.href === "/courses";
 
               return (
-                <Link
+                <Link prefetch={false}
                   key={item.href}
                   href={item.href}
                   className={cn(
@@ -67,7 +67,7 @@ export function Navbar() {
           {/* Right Action */}
           <div className="flex items-center gap-3">
             {/* Admission CTA */}
-            <Link
+            <Link prefetch={false}
               href={ctaNavItem.href}
               className="
                 admission-cta

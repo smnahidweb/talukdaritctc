@@ -25,17 +25,17 @@ export function Footer() {
         <div className="py-10 sm:py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 border-b border-blue-900/50">
           {/* Col 1: Brand + Social */}
           <div className="space-y-4">
-            <Link
+            <Link prefetch={false}
               href="/"
               aria-label="Talukdar IT & Computer Training Centre"
               className="inline-flex rounded-lg bg-white p-1"
             >
               <Image
-                src="/logo.png"
+                src="/logo2.png"
                 alt=""
-                width={1524}
-                height={505}
-                className="h-auto w-36 sm:w-56"
+                width={1254}
+                height={1254}
+                className="h-24 w-24 sm:h-28 sm:w-28"
               />
             </Link>
 
@@ -116,7 +116,7 @@ export function Footer() {
             <ul className="space-y-2">
               {usefulLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
+                  <Link prefetch={false}
                     href={link.href}
                     className="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors"
                   >
@@ -134,7 +134,7 @@ export function Footer() {
             <ul className="space-y-2">
               {coursesData.map((course) => (
                 <li key={course.slug}>
-                  <Link
+                  <Link prefetch={false}
                     href={`/courses/${course.slug}`}
                     className="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors"
                   >
@@ -184,7 +184,7 @@ export function Footer() {
       <div className="border-t border-blue-900/60 py-4">
         <Container>
           <p className="text-xs text-slate-500 text-center uppercase tracking-wide">
-            Copyright &copy; 2021 - {year} Talukdar IT &amp; Computer Training Centre. All rights reserved.
+            Copyright &copy; 2021 - Present - Talukdar IT &amp; Computer Training Centre. All rights reserved.
           </p>
           <p className="mt-1 text-[11px] text-white text-center">
             Designed &amp; Developed by{" "}

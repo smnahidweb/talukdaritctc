@@ -80,7 +80,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           {mainNavItems.map((item) => {
             const isActive = pathname === item.href;
             return (
-              <Link
+              <Link prefetch={false}
                 key={item.href}
                 href={item.href}
                 onClick={onClose}
@@ -102,7 +102,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
         {/* Drawer Bottom CTA & Contacts */}
         <div className="p-4 sm:p-5 border-t border-[#E2E8F0] bg-slate-50 space-y-4">
-          <Link
+          <Link prefetch={false}
             href={ctaNavItem.href}
             onClick={onClose}
             className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-lg bg-[#F97316] hover:bg-[#EA580C] text-white font-semibold shadow-sm transition-colors text-center"

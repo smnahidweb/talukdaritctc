@@ -46,7 +46,7 @@ export function DemoCTA() {
             {/* CTA Buttons */}
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               {/* Primary CTA */}
-              <Link
+              <Link prefetch={false}
                 href="/admission"
                 className="group inline-flex w-full items-center justify-center gap-2.5 rounded-xl bg-orange-100 px-7 py-3.5 text-sm font-bold text-orange-700 ring-1 ring-inset ring-orange-200 transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent hover:text-white hover:ring-accent sm:w-auto"
               >
@@ -59,7 +59,7 @@ export function DemoCTA() {
               </Link>
 
               {/* Secondary CTA */}
-              <Link
+              <Link prefetch={false}
                 href="/courses"
                 className="group inline-flex w-full items-center justify-center gap-2.5 rounded-xl border border-brand-blue-border bg-white px-7 py-3.5 text-sm font-semibold text-primary transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-primary hover:text-white sm:w-auto"
               >

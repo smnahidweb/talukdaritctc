@@ -40,7 +40,7 @@ export function BestSellingCourse() {
                 className="bg-white rounded-xl border border-[#E2E8F0] overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col"
               >
                 {/* Image area */}
-                <Link href={`/courses/${course.slug}`} className="block">
+                <Link prefetch={false} href={`/courses/${course.slug}`} className="block">
                   <div
                     className="w-full aspect-[16/9] flex items-center justify-center"
                     style={{ backgroundColor: ic.bg + "15" }}
@@ -57,7 +57,7 @@ export function BestSellingCourse() {
                 {/* Body */}
                 <div className="p-4 flex flex-col flex-1 gap-3">
                   <h3 className="text-base font-bold text-[#062B52]">
-                    <Link
+                    <Link prefetch={false}
                       href={`/courses/${course.slug}`}
                       className="hover:text-[#0756A8] transition-colors"
                     >
@@ -84,13 +84,13 @@ export function BestSellingCourse() {
 
                   {/* Dual CTA — same as rayhansict.com */}
                   <div className="mt-auto flex gap-2 pt-1">
-                    <Link
+                    <Link prefetch={false}
                       href="/admission"
                       className="flex-1 text-center py-2 rounded-md bg-[#F97316] hover:bg-[#EA580C] text-white text-xs font-semibold transition-colors"
                     >
                       Apply For Demo Class
                     </Link>
-                    <Link
+                    <Link prefetch={false}
                       href={`/courses/${course.slug}`}
                       className="flex-1 text-center py-2 rounded-md border border-[#0756A8] text-[#0756A8] hover:bg-[#EFF7FF] text-xs font-semibold transition-colors"
                     >

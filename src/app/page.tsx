@@ -11,6 +11,7 @@ import { FromLearningToEarning } from "@/components/home/FromLearningToEarning";
 import { DemoCTA } from "@/components/home/DemoCTA";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.talukdaritc.com"),
   title:
     "Talukdar IT & Computer Training Centre | Prasadpur Bazar, Manda, Naogaon",
   description:
@@ -22,6 +23,23 @@ export const metadata: Metadata = {
     "computer course Bangladesh",
     "Talukdar IT",
   ],
+  openGraph: {
+    title:
+      "Talukdar IT & Computer Training Centre | Prasadpur Bazar, Manda, Naogaon",
+    description:
+      "Practical IT and computer training in Prasadpur Bazar, Manda, Naogaon. Learn Microsoft Office, computer fundamentals, web design and digital skills.",
+    url: "https://www.talukdaritc.com",
+    siteName: "Talukdar IT & Computer Training Centre",
+    locale: "bn_BD",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Talukdar IT & Computer Training Centre | Prasadpur Bazar, Manda, Naogaon",
+    description:
+      "Practical IT and computer training in Prasadpur Bazar, Manda, Naogaon. Learn Microsoft Office, computer fundamentals, web design and digital skills.",
+  },
 };
 
 export default function HomePage() {

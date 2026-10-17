@@ -66,7 +66,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         );
       }
       return (
-        <Link href={href} className={combinedClassName}>
+        <Link prefetch={false} href={href} className={combinedClassName}>
           {children}
         </Link>
       );

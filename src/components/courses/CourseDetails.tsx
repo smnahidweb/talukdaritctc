@@ -23,7 +23,7 @@ export function CourseDetails({ course }: CourseDetailsProps) {
     <div className="space-y-8">
       {/* Back button */}
       <div>
-        <Link
+        <Link prefetch={false}
           href="/courses"
           className="inline-flex items-center gap-2 text-sm font-medium text-[#0756A8] hover:text-[#0B74D1] transition-colors"
         >
@@ -164,7 +164,7 @@ export function CourseDetails({ course }: CourseDetailsProps) {
 
               {/* Action Buttons */}
               <div className="pt-3 space-y-2.5">
-                <Link
+                <Link prefetch={false}
                   href="/admission"
                   className="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-[#F97316] hover:bg-[#EA580C] text-white font-bold shadow-xs transition-colors"
                 >

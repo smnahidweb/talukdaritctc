@@ -10,10 +10,10 @@ export const siteConfig: SiteConfig = {
   contact: {
     phone: "+8801751525294",
     phoneDisplay: "+880 1751-525294",
-    email: "info@talukdaritctc.com",
-    address: "Upazila Gate-1, Prasadpur Bazar",
+    email: "info@talukdaritc.com",
+    address: "Upazila Gate-1, Prosadpur Bazar",
     city: "Manda, Naogaon",
-    workingHours: "Mon - Sat: 9:00 AM - 8:00 PM",
+    workingHours: "Sat - Thu: 9:00 AM - 8:00 PM",
     whatsappUrl: "https://wa.me/8801751525294",
     facebookUrl: "https://facebook.com/talukdaritctc",
      

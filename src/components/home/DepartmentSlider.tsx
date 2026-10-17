@@ -114,7 +114,7 @@ function DepartmentItem({
     departmentIcons[department.title] ?? Monitor;
 
   return (
-    <Link
+    <Link prefetch={false}
       href={department.href}
       aria-hidden={ariaHidden}
       tabIndex={ariaHidden ? -1 : undefined}

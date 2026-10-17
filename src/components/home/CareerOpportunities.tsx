@@ -56,7 +56,7 @@ export function CareerOpportunities() {
 
             {/* CTA */}
             <div className="pt-2">
-              <Link
+              <Link prefetch={false}
                 href="/admission"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#F97316] hover:bg-[#EA580C] text-white font-bold shadow-xs transition-colors"
               >

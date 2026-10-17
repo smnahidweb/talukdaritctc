@@ -162,7 +162,7 @@ export default function AllCourses() {
                                 <div className="mt-auto pt-6">
                                     <div className="mb-5 h-px bg-accent-border" />
 
-                                    <Link
+                                    <Link prefetch={false}
                                         href={`/courses/${course.slug}`}
                                         className="group/link inline-flex items-center gap-2 text-sm font-bold text-primary transition-colors duration-300 hover:text-primary-hover"
                                     >

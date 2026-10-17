@@ -150,7 +150,7 @@ export default function PopularCourses() {
                                 <div className="mt-auto pt-6">
                                     <div className="mb-5 h-px bg-accent-border" />
 
-                                    <Link
+                                    <Link prefetch={false}
                                         href={`/courses/${course.slug}`}
                                         className="group/link inline-flex items-center gap-2 text-sm font-bold text-primary transition-colors duration-300 hover:text-primary-hover"
                                     >
@@ -168,7 +168,7 @@ export default function PopularCourses() {
 
                 {/* Bottom CTA */}
                 <div className="relative mt-10 flex justify-center">
-                    <Link
+                    <Link prefetch={false}
                         href="/courses"
                         className="group inline-flex items-center gap-2 rounded-xl border border-brand-border bg-white px-6 py-3 text-sm font-bold text-brand-text shadow-sm transition-all duration-300 hover:border-primary hover:text-primary hover:shadow-md"
                     >

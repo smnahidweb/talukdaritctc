@@ -50,14 +50,14 @@ export function FeaturedCourse() {
 
               {/* Action Buttons */}
               <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                <Link
+                <Link prefetch={false}
                   href="/admission"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#F97316] hover:bg-[#EA580C] text-white font-bold shadow-xs transition-colors"
                 >
                   Enroll Now
                   <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link
+                <Link prefetch={false}
                   href="/admission"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold border border-white/20 transition-colors"
                 >

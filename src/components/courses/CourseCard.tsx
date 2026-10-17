@@ -58,7 +58,7 @@ export function CourseCard({ course }: CourseCardProps) {
 
         {/* Title */}
         <h3 className="text-lg font-bold text-[#062B52] leading-tight mb-3 group-hover:text-[#0756A8] transition-colors">
-          <Link href={`/courses/${course.slug}`}>
+          <Link prefetch={false} href={`/courses/${course.slug}`}>
             {course.title}
           </Link>
         </h3>
@@ -89,7 +89,7 @@ export function CourseCard({ course }: CourseCardProps) {
         </div>
 
         {/* Action Button: Solid Blue */}
-        <Link
+        <Link prefetch={false}
           href={`/courses/${course.slug}`}
           className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-lg bg-[#0756A8] hover:bg-[#0B74D1] text-white text-xs sm:text-sm font-semibold transition-colors shadow-2xs"
         >
