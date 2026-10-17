@@ -25,12 +25,12 @@ export function Navbar() {
             aria-label="Talukdar IT & Computer Training Centre"
           >
             <Image
-              src="/logo4.png"
+              src="/logo5.png"
               alt=""
-              width={1500}
-              height={1500}
+              width={2067}
+              height={761}
               priority
-              className="h-16 w-16 sm:h-18 sm:w-18"
+              className="h-auto w-40 sm:w-52"
             />
           </Link>
 

@@ -31,11 +31,11 @@ export function Footer() {
               className="inline-flex rounded-lg bg-white p-1"
             >
               <Image
-                src="/logo2.png"
+                src="/logo5.png"
                 alt=""
-                width={1254}
-                height={1254}
-                className="h-24 w-24 sm:h-28 sm:w-28"
+                width={2067}
+                height={761}
+                className="h-auto w-56 sm:w-64"
               />
             </Link>
 
