@@ -4,7 +4,7 @@ import { siteConfig } from "@/data/site";
 import { Container } from "@/components/shared/Container";
 import { Section } from "@/components/shared/Section";
 import { PageHeader } from "@/components/shared/PageHeader";
-import { Button } from "@/components/ui/button";
+import { EmailForm } from "@/components/forms/EmailForm";
 
 export const metadata: Metadata = {
   title: "Contact & Location",
@@ -110,7 +110,14 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <form className="space-y-4" action="#">
+              <EmailForm
+                formType="Contact Form"
+                className="space-y-4"
+                buttonVariant="primary"
+                buttonClassName="w-full sm:w-auto font-semibold"
+                submitLabel="Submit Inquiry"
+                pendingLabel="Submitting..."
+              >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
                     <label htmlFor="name" className="text-xs font-semibold text-[#172033]">
@@ -119,6 +126,8 @@ export default function ContactPage() {
                     <input
                       type="text"
                       id="name"
+                      name="name"
+                      required
                       placeholder="e.g. Tanvir Hossain"
                       className="w-full px-3.5 py-2.5 rounded-lg border border-[#E2E8F0] text-sm focus:border-[#0756A8] focus:outline-none"
                     />
@@ -130,6 +139,8 @@ export default function ContactPage() {
                     <input
                       type="tel"
                       id="phone"
+                      name="phone"
+                      required
                       placeholder="01XXXXXXXXX"
                       className="w-full px-3.5 py-2.5 rounded-lg border border-[#E2E8F0] text-sm focus:border-[#0756A8] focus:outline-none"
                     />
@@ -142,6 +153,7 @@ export default function ContactPage() {
                   </label>
                   <select
                     id="course"
+                    name="course"
                     className="w-full px-3.5 py-2.5 rounded-lg border border-[#E2E8F0] text-sm focus:border-[#0756A8] focus:outline-none bg-white"
                   >
                     <option value="">Select a program...</option>
@@ -159,20 +171,13 @@ export default function ContactPage() {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     rows={4}
                     placeholder="Ask about batch timings, fees, or prerequisites..."
                     className="w-full px-3.5 py-2.5 rounded-lg border border-[#E2E8F0] text-sm focus:border-[#0756A8] focus:outline-none resize-none"
                   />
                 </div>
-
-                <Button
-                  variant="primary"
-                  size="lg"
-                  className="w-full sm:w-auto font-semibold"
-                >
-                  Submit Inquiry
-                </Button>
-              </form>
+              </EmailForm>
             </div>
           </div>
         </Container>

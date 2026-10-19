@@ -31,7 +31,7 @@ export function Footer() {
               className="inline-flex rounded-lg bg-white p-1"
             >
               <Image
-                src="/logo5.png"
+                src="/updated_logo.png"
                 alt=""
                 width={2067}
                 height={761}

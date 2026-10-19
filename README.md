@@ -34,3 +34,16 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Website Form Email
+
+The Contact and Admission forms submit to `/api/contact` and send mail through Resend. Configure these server-only environment variables in `.env.local` for local development and in the Vercel project settings for each deployment environment:
+
+```env
+RESEND_API_KEY=re_your_api_key
+CONTACT_EMAIL=info@talukdaritc.com
+```
+
+In Resend, add and verify `talukdaritc.com` before sending from `website@talukdaritc.com`. Resend provides the exact DNS records to add for domain verification and email authentication. Add those records in Namecheap's DNS settings without changing unrelated records; production DNS should only be modified by an authorized domain administrator. Wait for Resend to confirm verification.
+
+In Vercel, add both variables under **Project Settings → Environment Variables** for the environments that should send email, then redeploy so the function receives them. Keep the API key out of client-side code and source control. The endpoint uses a hidden honeypot field and validates submitted fields on the server.

@@ -14,7 +14,7 @@ import { Container } from "@/components/shared/Container";
 import { Section } from "@/components/shared/Section";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { EmailForm } from "@/components/forms/EmailForm";
 
 export const metadata: Metadata = {
   title: "Admission & Enrollment",
@@ -133,7 +133,15 @@ export default function AdmissionPage() {
                 </p>
               </div>
 
-              <form className="space-y-4" action="#">
+              <EmailForm
+                formType="Admission Form"
+                className="space-y-4"
+                buttonVariant="accent"
+                buttonClassName="w-full font-bold shadow-sm"
+                submitLabel="Submit Admission Application"
+                pendingLabel="Submitting..."
+                successMessage="Your admission application has been submitted successfully. Our team will contact you soon."
+              >
                 {/* Name + Phone */}
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div className="space-y-1.5">
@@ -310,16 +318,7 @@ export default function AdmissionPage() {
                   </div>
                 </div>
 
-                {/* Submit */}
-                <Button
-                  type="submit"
-                  variant="accent"
-                  size="lg"
-                  className="w-full font-bold shadow-sm"
-                >
-                  Submit Admission Application
-                </Button>
-              </form>
+              </EmailForm>
             </div>
 
             {/* Right Side Information */}

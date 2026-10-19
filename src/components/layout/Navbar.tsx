@@ -25,7 +25,7 @@ export function Navbar() {
             aria-label="Talukdar IT & Computer Training Centre"
           >
             <Image
-              src="/logo5.png"
+              src="/updated_logo.png"
               alt=""
               width={2067}
               height={761}
